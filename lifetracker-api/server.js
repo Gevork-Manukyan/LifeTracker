@@ -4,7 +4,7 @@ const morgan = require("morgan")
 
 const { NotFoundError } = require("./utils/errors")
 
-
+const authRouter = require("./routes/auth")
 
 const app = express()
 
