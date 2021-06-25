@@ -1,12 +1,13 @@
 const bcrypt = require("bcrypt")
 
 const db = require("../db")
+const { BCRYPT_WORK_FACTOR } = require("../config")
 
 const { NotFoundError, UnauthorizedError, BadRequestError } = require("../utils/errors")
 
 class User {
     static async login (credentials) {
-        
+
         const requiredFields = ["email", "password"]
         requiredFields.forEach(field => {
             if (!credentials.hasOwnProperty(field))
@@ -26,21 +27,51 @@ class User {
         throw new UnauthorizedError("Invalid email/password")
     }
 
+    
     /** Removes Password from user */
     static async makePublicUser (user) {
         return {
             id: user.id,
             username: user.username,
             email: user.email,
-            password: user.password,
             isAdmin: user.is_admin,
             createdAt: user.created_at
         }
     }
 
+
     static async register (credentials) {
-        // create new user with credentials and add to db
+
+        const requiredFields = ["username", "email", "password", "isAdmin"]
+        requiredFields.forEach(field => {
+            if (!credentials.hasOwnProperty(field))
+                throw new BadRequestError(`Missing ${field}`)
+        })
+        
+
+        if (credentials.email.indexOf('@') <= 0)
+            throw new BadRequestError('Invalid email')
+
+        if (await this.fetchUserByEmail(credentials.email))
+            throw new BadRequestError(`Existing User with email ${credentials.email}`)
+
+        const hashedPass = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR) 
+        const normalizedEmail = credentials.email.toLowerCase()
+
+        const result = await db.query(
+            `
+                INSERT INTO users (username, email, password, is_admin)
+                VALUES ($1, $2, $3, $4)
+                RETURNING id, 
+                          username,
+                          email,
+                          is_admin AS isAdmin
+            `, [credentials.username, normalizedEmail, hashedPass, credentials.isAdmin]
+        )
+
+        return this.makePublicUser(result.rows[0]);
     }
+
 
     static async fetchUserByEmail (email) {
 

@@ -4,7 +4,7 @@ const morgan = require("morgan")
 
 const { NotFoundError } = require("./utils/errors")
 
-const authRouter = require("./routes/auth")
+const authRoutes = require("./routes/auth")
 
 const app = express()
 
@@ -13,11 +13,8 @@ app.use(cors())
 app.use(express.json())
 app.use(morgan("tiny"))
 
+app.use("/auth", authRoutes)
 
-
-app.use("/", async (req, res, next) => {
-    res.status(200).json({ ping: "pong" })
-})
 
 /** Handle 404 errors -- this matches everything that isn't defined */
 app.use((req, res, next) => {
