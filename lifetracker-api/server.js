@@ -6,6 +6,7 @@ const { NotFoundError } = require("./utils/errors")
 const security = require("./middleware/security")
 
 const authRoutes = require("./routes/auth")
+const activitiesRoutes = require("./routes/activities")
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(morgan("tiny"))
 app.use(security.extractUserFromJwt)
 
 app.use("/auth", authRoutes)
+app.use("/activities", activitiesRoutes)
 
 
 /** Handle 404 errors -- this matches everything that isn't defined */

@@ -7,3 +7,4 @@ CREATE DATABASE lifetracker;
 \connect lifetracker;
 
 \i lifetracker-schema.sql
+\i lifetracker-seed.sql

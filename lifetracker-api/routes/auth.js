@@ -31,10 +31,10 @@ router.post("/register", async(req, res, next) => {
 router.get("/me", security.requireAuthenticatedUser, async(req, res, next) => {
 
     try {
-        const { user } = res.locals
-        const newUser = await User.fetchUserByEmail(user.email)
-        const newPublicUser = await User.makePublicUser(newUser)
-        return res.status(200).json({ newPublicUser });
+        const { email } = res.locals.user
+        const newUser = await User.fetchUserByEmail(email)
+        const user = await User.makePublicUser(newUser)
+        return res.status(200).json({ user });
 
     } catch (err) {
         return next(err);
