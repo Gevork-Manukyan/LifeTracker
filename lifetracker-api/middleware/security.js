@@ -38,7 +38,7 @@ const requireAuthenticatedUser = (req, res, next) => {
         return next();
 
     } catch (err) {
-        return next(err);
+        return next();
     }
 }
 
