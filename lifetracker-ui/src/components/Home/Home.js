@@ -1,5 +1,6 @@
 import "./Home.css"
 
+import { Link } from "react-router-dom";
 import { CssBaseline, Typography, Container, Grid, Paper, Box } from "@material-ui/core"
 import Image from "material-ui-image"
 import useStyles from "./Home_Styles";
@@ -23,28 +24,34 @@ function Home () {
                             </Paper>
                         </Grid>
                         <Grid item xs={4}>
-                            <Paper elevation={4} className={classes.subImages}>
-                                <Box className="subImages">
-                                    <Typography>Fitness</Typography>
-                                    <Image src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
-                                </Box>
-                            </Paper>
+                            <Link to="/exercise">
+                                <Paper elevation={4} className={classes.subImages}>
+                                    <Box className="subImages">
+                                            <Typography>Fitness</Typography>
+                                        <Image src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" />
+                                    </Box>
+                                </Paper>
+                            </Link>
                         </Grid>
                         <Grid item xs={4}>
-                            <Paper elevation={4} className={classes.subImages} >
-                                <Box className="subImages">
-                                    <Typography>Food</Typography>
-                                    <Image src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80" />
-                                </Box>
-                            </Paper>
+                            <Link to="/nutrition">
+                                <Paper elevation={4} className={classes.subImages} >
+                                    <Box className="subImages">
+                                            <Typography>Food</Typography>
+                                        <Image src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=735&q=80" />
+                                    </Box>
+                                </Paper>
+                            </Link>
                         </Grid>
                         <Grid item xs={4}>
-                            <Paper elevation={4} className={classes.subImages}>
-                                <Box className="subImages">
-                                    <Typography>Rest</Typography>
-                                    <Image src="https://images.unsplash.com/photo-1495197359483-d092478c170a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=659&q=80" />
-                                </Box>
-                            </Paper>
+                            <Link to="/sleep">
+                                <Paper elevation={4} className={classes.subImages}>
+                                    <Box className="subImages">
+                                            <Typography>Rest</Typography>
+                                        <Image src="https://images.unsplash.com/photo-1495197359483-d092478c170a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=659&q=80" />
+                                    </Box>
+                                </Paper>
+                            </Link>
                         </Grid>
                     </Grid>
                 </Container>
