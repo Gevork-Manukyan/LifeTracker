@@ -1,6 +1,7 @@
 import "./NavBar.css"
 import codepath_logo from "../../assets/codepath_logo.png"
 
+import { Link } from "react-router-dom"
 import { CssBaseline, Typography, AppBar, Toolbar, Container, Box, Button } from "@material-ui/core"
 import useStyles from "./NavBar_Styles"
 
@@ -20,10 +21,26 @@ function NavBar () {
                             </span>
 
                             <Box className={classes.links} >
-                                <Box className={classes.linkItems}><Typography variant="h7">Activity</Typography></Box>
-                                <Box className={classes.linkItems}><Typography variant="h7">Exercise</Typography></Box>
-                                <Box className={classes.linkItems}><Typography variant="h7">Nutritional</Typography></Box>
-                                <Box className={classes.linkItems}><Typography variant="h7">Sleep</Typography></Box>
+                                <Link to="/">
+                                    <Box className={classes.linkItems}>
+                                        <Typography variant="h7">Activity</Typography>
+                                    </Box>
+                                </Link>
+                                <Link to="/exercise">
+                                    <Box className={classes.linkItems}>
+                                        <Typography variant="h7">Exercise</Typography>
+                                    </Box>
+                                </Link>
+                                <Link to="/nutrition">
+                                    <Box className={classes.linkItems}>
+                                        <Typography variant="h7">Nutritional</Typography>
+                                    </Box>
+                                </Link>
+                                <Link to="/sleep">
+                                    <Box className={classes.linkItems}>
+                                        <Typography variant="h7">Sleep</Typography>
+                                    </Box>
+                                </Link>
                                 <Button className={classes.loginBtn} variant="contained" color="">login</Button>
                                 <Button className={classes.signupBtn} variant="outlined" color="">Sign Up</Button>
                             </Box>
