@@ -41,8 +41,13 @@ function NavBar () {
                                         <Typography variant="h7">Sleep</Typography>
                                     </Box>
                                 </Link>
-                                <Button className={classes.loginBtn} variant="contained" color="">login</Button>
-                                <Button className={classes.signupBtn} variant="outlined" color="">Sign Up</Button>
+                                
+                                <Link to="/login">
+                                    <Button className={classes.loginBtn} variant="contained" color="">login</Button>
+                                </Link>
+                                <Link to="/signup">
+                                    <Button className={classes.signupBtn} variant="outlined" color="">Sign Up</Button>
+                                </Link>
                             </Box>
                         </Toolbar>
                     </Container>
