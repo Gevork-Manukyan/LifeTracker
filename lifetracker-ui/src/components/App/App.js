@@ -3,14 +3,7 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import NavBar       from "../NavBar/NavBar";
-import Home         from "../Home/Home";
-import Login        from "../Login/Login";
-import Signup       from "../Signup/Signup";
-import ActivityPage from "../ActivityPage/ActivityPage";
-import Exercise     from "../Exercise/Exercise";
-import Nutrition    from "../Nutrition/Nutrition";
-import Sleep        from "../Sleep/Sleep";
+import { NavBar, Home, Login, Signup, ActivityPage, Exercise, Nutrition, Sleep } from "components"
 
 
 function App() {

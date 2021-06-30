@@ -16,9 +16,9 @@ function NavBar () {
                 <AppBar position="relative">
                     <Container maxWidth='md'>
                         <Toolbar className={classes.navBar}>
-                            <span>
+                            <Link to="/">
                                 <img className="logo" src={codepath_logo} alt="codepath logo" />
-                            </span>
+                            </Link>
 
                             <Box className={classes.links} >
                                 <Link to="/">

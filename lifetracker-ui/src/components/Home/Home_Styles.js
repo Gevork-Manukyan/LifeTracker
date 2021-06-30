@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { border } from "@material-ui/system";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
