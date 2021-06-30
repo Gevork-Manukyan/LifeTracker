@@ -4,7 +4,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         textAlign: 'center',
     },
-    addExerciseBtn: {
+    addActivityBtn: {
         textAlign: 'end',
     },
 }))

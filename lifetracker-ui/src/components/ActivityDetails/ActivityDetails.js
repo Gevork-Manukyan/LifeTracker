@@ -1,26 +1,26 @@
-import "./Exercise.css"
+import "./ActivityDetails.css"
 
 import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/core"
 import { Feed } from "components"
-import useStyles from "./Exercise_Styels"
+import useStyles from "./ActivityDetails_Styles"
 
-function Exercise () {
+function ActivityDetails () {
 
     const classes = useStyles()
 
     return (
-        <div className="Exercise">
+        <div className="ActivityDetails">
             <CssBaseline />
             <Container>
                 <Grid container justify='center'>
                     <Grid item xs={12}>
-                        <Typography className={classes.title} variant="h3">Exercise</Typography>
+                        <Typography className={classes.title} variant="h3">ActivityDetails</Typography>
                     </Grid>
                     <Grid item xs={6}>
                         <Typography className={classes.header}>Overview</Typography>
                     </Grid>
-                    <Grid className={classes.addExerciseBtn} item xs={6}>
-                        <Button>Add Exercise</Button>
+                    <Grid className={classes.addActivityBtn} item xs={6}>
+                        <Button>Add ActivityDetails</Button>
                     </Grid>
                     <Grid item>
                         <Feed />
@@ -31,4 +31,4 @@ function Exercise () {
     )
 }
 
-export default Exercise;
+export default ActivityDetails;
