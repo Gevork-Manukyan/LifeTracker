@@ -17,6 +17,12 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
     navBar: {
         margin: "10px 0",
+        width: "100%",
+        msOverflowX: "auto",
+    },
+    appBar: {
+        width: "100%",
+        msOverflowX: "auto",
     },
     links: {
         display: "flex",

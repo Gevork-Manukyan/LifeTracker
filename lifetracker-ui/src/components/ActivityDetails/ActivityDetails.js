@@ -12,19 +12,25 @@ function ActivityDetails (props) {
     return (
         <div className="ActivityDetails">
             <CssBaseline />
-            <Container>
+            <Container className={classes.activityDetailContainer} maxWidth="xl">
                 <Grid container justify='center'>
                     <Grid item xs={12}>
                         <Typography className={classes.title} variant="h3">{type}</Typography>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Typography className={classes.header}>Overview</Typography>
-                    </Grid>
-                    <Grid className={classes.addActivityBtn} item xs={6}>
-                        <Button>Add {type}</Button>
-                    </Grid>
-                    <Grid item>
-                        <Feed type={type} />
+                    <Grid item xs={12}>
+                        <Container pt={8} maxWidth="md">
+                            <Grid container justify='center'>
+                                <Grid item xs={6}>
+                                    <Typography className={classes.header} variant='h4'>Overview</Typography>
+                                </Grid>
+                                <Grid className={classes.addActivityBtn} item xs={6}>
+                                    <Button variant='outlined'><Typography className={classes.addBtnText}>Add {type}</Typography></Button>
+                                </Grid>
+                                <Grid className={classes.feedGridItem} item>
+                                    <Feed type={type} />
+                                </Grid>
+                            </Grid>
+                        </Container>
                     </Grid>
                 </Grid>
             </Container>

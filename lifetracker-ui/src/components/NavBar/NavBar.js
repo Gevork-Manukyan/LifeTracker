@@ -13,7 +13,7 @@ function NavBar () {
     return (
         <div className="NavBar">
             <CssBaseline />
-                <AppBar position="relative">
+                <AppBar className={classes.appBar} position="relative">
                     <Container maxWidth='md'>
                         <Toolbar className={classes.navBar}>
                             <Link to="/">

@@ -42,14 +42,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#2C739A",
     },
     avatarLetter: {
-        fontFamily: "Roboto",
+        fontFamily: "Roboto, sans-serif",
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "36px",
         lineHeight: "42px"
     },
     cardTitle: {
-        fontFamily: "Krona One",
+        fontFamily: "Krona One, Roboto, sans-serif",
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "36px",
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cardSubtitle: {
         paddingLeft: "3px",
-        fontFamily: "Roboto",
+        fontFamily: "Roboto, sans-serif",
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "14px",
@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     },
     columnTitle: {
         marginBottom: "8px",
-        fontFamily: "Krona One",
+        fontFamily: "Krona One, Roboto, sans-serif",
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "14px",
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme) => ({
         textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
     },
     columnValue: {
-        fontFamily: "Krona One",
+        fontFamily: "Krona One, Roboto, sans-serif",
         fontStyle: "normal",
         fontWeight: "normal",
         fontSize: "24px",
@@ -105,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#000000",
     },
     cardContentFooter: {
-        fontFamily: "Krona One",
+        fontFamily: "Krona One, Roboto, sans-serif",
         // fontFamily: "Roboto",
         marginTop: "15px",
     }
