@@ -1,8 +1,11 @@
 import "./ActivityDetails.css"
 
+import  { ExerciseForm, Header } from "components"
 import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/core"
 import { Feed } from "components"
+import { Routes, Route, Link } from "react-router-dom"
 import useStyles from "./ActivityDetails_Styles"
+
 
 function ActivityDetails (props) {
 
@@ -14,9 +17,7 @@ function ActivityDetails (props) {
             <CssBaseline />
             <Container className={classes.activityDetailContainer} maxWidth="xl">
                 <Grid container justify='center'>
-                    <Grid item xs={12}>
-                        <Typography className={classes.title} variant="h3">{type}</Typography>
-                    </Grid>
+                    <Header type={type} />
                     <Grid item xs={12}>
                         <Container pt={8} maxWidth="md">
                             <Grid container justify='center'>
@@ -24,7 +25,11 @@ function ActivityDetails (props) {
                                     <Typography className={classes.header} variant='h4'>Overview</Typography>
                                 </Grid>
                                 <Grid className={classes.addActivityBtn} item xs={6}>
-                                    <Button variant='outlined'><Typography className={classes.addBtnText}>Add {type}</Typography></Button>
+                                    <Button variant='outlined'>
+                                        <Link to="./create">
+                                            <Typography className={classes.addBtnText}>Add {type}</Typography>
+                                        </Link>
+                                    </Button>
                                 </Grid>
                                 <Grid className={classes.feedGridItem} item>
                                     <Feed type={type} />

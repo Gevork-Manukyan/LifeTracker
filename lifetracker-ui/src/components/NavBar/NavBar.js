@@ -1,7 +1,7 @@
 import "./NavBar.css"
 import codepath_logo from "../../assets/codepath_logo.png"
 
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { CssBaseline, Typography, AppBar, Toolbar, Container, Box, Button } from "@material-ui/core"
 import useStyles from "./NavBar_Styles"
 
@@ -21,26 +21,26 @@ function NavBar () {
                             </Link>
 
                             <Box className={classes.links} >
-                                <Link to="/">
+                                <NavLink to="/">
                                     <Box className={classes.linkItems}>
                                         <Typography variant="h7">Activity</Typography>
                                     </Box>
-                                </Link>
-                                <Link to="/exercise">
+                                </NavLink>
+                                <NavLink to="/exercise">
                                     <Box className={classes.linkItems}>
                                         <Typography variant="h7">Exercise</Typography>
                                     </Box>
-                                </Link>
-                                <Link to="/nutrition">
+                                </NavLink>
+                                <NavLink to="/nutrition">
                                     <Box className={classes.linkItems}>
                                         <Typography variant="h7">Nutritional</Typography>
                                     </Box>
-                                </Link>
-                                <Link to="/sleep">
+                                </NavLink>
+                                <NavLink to="/sleep">
                                     <Box className={classes.linkItems}>
                                         <Typography variant="h7">Sleep</Typography>
                                     </Box>
-                                </Link>
+                                </NavLink>
                                 
                                 <Link to="/login">
                                     <Button className={classes.loginBtn} variant="contained" color="">login</Button>
