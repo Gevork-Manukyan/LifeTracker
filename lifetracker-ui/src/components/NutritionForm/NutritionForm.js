@@ -2,8 +2,11 @@ import useStyles from "./NutritionForm_Style";
 
 import { CssBaseline, Container, Grid, Typography, TextField, Button } from "@material-ui/core"
 import { Header } from "components"
+import { useNutritionForm } from "hooks/useNutritionForm"
 
 function NutritionForm () {
+
+    const { foodName, quantity, calories, handleTextOnChange } = useNutritionForm()
 
     const classes = useStyles()
     return (
@@ -30,8 +33,8 @@ function NutritionForm () {
                                         id="food_name"
                                         label="Food Name"
                                         name="food_name"
-                                        // value={exerciseName}
-                                        // onChange={handleTextOnChange}
+                                        value={foodName}
+                                        onChange={handleTextOnChange}
                                         autoFocus
                                     />
                                 </Grid>
@@ -45,8 +48,8 @@ function NutritionForm () {
                                         fullWidth
                                         id="quantity"
                                         label="Quantity"
-                                        // value={duration}
-                                        // onChange={handleTextOnChange}
+                                        value={quantity}
+                                        onChange={handleTextOnChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -59,8 +62,8 @@ function NutritionForm () {
                                         fullWidth
                                         id="calories"
                                         label="Calories"
-                                        // value={intensity}
-                                        // onChange={handleTextOnChange}
+                                        value={calories}
+                                        onChange={handleTextOnChange}
                                     />
                                 </Grid>
                             </Grid>

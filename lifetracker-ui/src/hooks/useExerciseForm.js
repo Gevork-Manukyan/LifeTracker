@@ -4,18 +4,16 @@ import { useState } from "react"
 export const useExerciseForm = () => {
 
     const [exerciseName, setExerciseName] = useState("")
-    const [duration, setDuration] = useState(null)
-    const [intensity, setIntensity] = useState(null)
+    const [duration, setDuration] = useState(0)
+    const [intensity, setIntensity] = useState(0)
 
     const handleTextOnChange = (evt) => {
         const name = evt.target.name.toLowerCase()
 
         if (name === "exercise_name") {
-            console.log("Exercise")
             setExerciseName(evt.target.value)
         }
         else if (name === "duration") {
-            console.log("duration")
             if (evt.target.value >= 0)
                 setDuration(evt.target.value)
         }
