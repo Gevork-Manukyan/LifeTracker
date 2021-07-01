@@ -14,7 +14,7 @@ function Feed (props) {
             <CssBaseline />
             <Container className="feedContainer" maxWidth='sm'>
                 <Grid container>
-                    <FeedItem />
+                    <FeedItem type={props.type} />
                 </Grid>
             </Container>
         </div>
