@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 
-
 const useStyles = makeStyles((theme) => ({
     activityDetailContainer: {
         padding: "0",

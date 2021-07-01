@@ -1,25 +1,21 @@
-import { Header } from "components"
-import useStyles from "./ExerciseForm_Styles"
+import useStyles from "./NutritionForm_Style";
+
 import { CssBaseline, Container, Grid, Typography, TextField, Button } from "@material-ui/core"
-import { useExerciseForm } from "hooks/useExerciseForm"
+import { Header } from "components"
 
-
-function ExerciseForm () {
-
-
-    const { exerciseName, duration, intensity, handleTextOnChange } = useExerciseForm()
+function NutritionForm () {
 
     const classes = useStyles()
     return (
-        <div className="ExerciseForm">
+        <div className="NutritionForm">
             <CssBaseline />
             <Container className={classes.activityDetailContainer} maxWidth="xl">
                 <Grid container justify='center'>
-                    <Header type="exercise" />
+                    <Header type="nutrition" />
                     <Grid item>
 
                         <Typography className={classes.header} variant='h4'>
-                            Add Exercise
+                            Record Nutrition
                         </Typography>
 
                         <form className={classes.form}>
@@ -27,46 +23,44 @@ function ExerciseForm () {
                                 <Grid item xs={12}>
 
                                     <TextField
-                                        className={classes.exerciseName}
+                                        className={classes.foodName}
                                         variant="outlined"
                                         required
                                         fullWidth
-                                        id="exercise_name"
-                                        label="Exercise Name"
-                                        name="exercise_name"
-                                        value={exerciseName}
-                                        onChange={handleTextOnChange}
+                                        id="food_name"
+                                        label="Food Name"
+                                        name="food_name"
+                                        // value={exerciseName}
+                                        // onChange={handleTextOnChange}
                                         autoFocus
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
-                                        className={classes.duration}
-                                        name="duration"
+                                        className={classes.quantity}
+                                        name="quantity"
                                         variant="outlined"
                                         type="number"
                                         required
                                         fullWidth
-                                        id="duration"
-                                        label="Duration"
-                                        placeholder="Minutes"
-                                        value={duration}
-                                        onChange={handleTextOnChange}
+                                        id="quantity"
+                                        label="Quantity"
+                                        // value={duration}
+                                        // onChange={handleTextOnChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
                                     <TextField
-                                        className={classes.intensity}
-                                        name="intensity"
+                                        className={classes.calories}
+                                        name="calories"
                                         variant="outlined"
                                         type="number"
                                         required
                                         fullWidth
-                                        id="intensity"
-                                        label="Intensity"
-                                        placeholder="0-10"
-                                        value={intensity}
-                                        onChange={handleTextOnChange}
+                                        id="calories"
+                                        label="Calories"
+                                        // value={intensity}
+                                        // onChange={handleTextOnChange}
                                     />
                                 </Grid>
                             </Grid>
@@ -89,4 +83,4 @@ function ExerciseForm () {
     )
 }
 
-export default ExerciseForm;
+export default NutritionForm;

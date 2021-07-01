@@ -9,7 +9,8 @@ export { default as NavBar } from "./NavBar/NavBar"
 export { default as Signup } from "./Signup/Signup"
 export { default as ActivityDetails } from "./ActivityDetails/ActivityDetails"
 export { default as ExerciseForm } from "./ExerciseForm/ExerciseForm"
-// export { default as ActivityDetails } from "./ActivityDetails/ActivityDetails"
-// export { default as ActivityDetails } from "./ActivityDetails/ActivityDetails"
+export { default as NutritionForm } from "./NutritionForm/NutritionForm"
+export { default as SleepForm } from "./SleepForm/SleepForm"
 export { default as Header } from "./Header/Header"
+
 

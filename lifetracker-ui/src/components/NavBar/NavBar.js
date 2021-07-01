@@ -23,7 +23,7 @@ function NavBar () {
                             <Box className={classes.links} >
                                 <NavLink to="/">
                                     <Box className={classes.linkItems}>
-                                        <Typography variant="h7">Activity</Typography>
+                                        <Typography variant="span">Activity</Typography>
                                     </Box>
                                 </NavLink>
                                 <NavLink to="/exercise">

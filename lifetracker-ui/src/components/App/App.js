@@ -3,7 +3,7 @@ import "./App.css";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import { NavBar, Home, Login, Signup, ActivityPage, ActivityDetails, ExerciseForm } from "components"
+import { NavBar, Home, Login, Signup, ActivityPage, ActivityDetails, ExerciseForm, NutritionForm, SleepForm } from "components"
 
 
 function App() {
@@ -21,9 +21,9 @@ function App() {
                     <Route path="/exercise" element={<ActivityDetails type='exercise' />} />
                     <Route path="/exercise/create" element={<ExerciseForm />} />
                     <Route path="/nutrition" element={<ActivityDetails type='nutrition' />} />
-                    {/* <Route path="/nutrition/create" element={} /> */}
+                    <Route path="/nutrition/create" element={<NutritionForm />} />
                     <Route path="/sleep" element={<ActivityDetails type='sleep' />} />
-                    {/* <Route path="/sleep/create" element={} /> */}
+                    <Route path="/sleep/create" element={<SleepForm />} />
 
                 </Routes>
             </BrowserRouter>
