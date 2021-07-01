@@ -1,20 +1,12 @@
 import useStyles from "./SleepForm_Styles";
 
-import { useState } from "react";
 import { CssBaseline, Grid, Typography, Container, TextField, Button } from "@material-ui/core"
 import { Header } from "components"
+import { useSleepForm } from "hooks/useSleepForm"
 
 function SleepForm () {
 
-    const [startTime, setStartTime] = useState("")
-    const [endTime, setEndTime] = useState("")
-
-    const handleDateOnChange = (evt) => {
-        if (evt.target.name.toLowerCase() === "start_time")
-            setStartTime(evt.target.value)
-        else 
-            setEndTime(evt.target.value)
-    }
+    const { startTime, endTime, handleDateOnChange } = useSleepForm()
 
     const classes = useStyles()
     return (
