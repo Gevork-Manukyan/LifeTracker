@@ -17,10 +17,10 @@ function App() {
                     <Route path="/" element={<Home  />} />
                     <Route path="/login" element={<Login  />} />
                     <Route path="/signup" element={<Signup  />} />
-                    <Route path="/activity" element={<ActivityPage  />} />
-                    <Route path="/exercise" element={<ActivityDetails  />} />
-                    <Route path="/nutrition" element={<ActivityDetails />} />
-                    <Route path="/sleep" element={<ActivityDetails  />} />
+                    <Route path="/activity" element={<ActivityPage />} />
+                    <Route path="/exercise" element={<ActivityDetails type='exercise' />} />
+                    <Route path="/nutrition" element={<ActivityDetails type='nutrition' />} />
+                    <Route path="/sleep" element={<ActivityDetails type='sleep' />} />
 
                 </Routes>
             </BrowserRouter>
