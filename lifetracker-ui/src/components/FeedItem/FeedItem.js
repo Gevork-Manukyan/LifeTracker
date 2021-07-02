@@ -4,10 +4,10 @@ import { Grid } from "@material-ui/core"
 import { useFeedItem } from "hooks/useFeedItem"
 
 
-function FeedItem (props) {
+function FeedItem ({ type, newItem }) {
 
-    const type = props?.type?.toLowerCase()
-    const { makeExerciseItem, makeNutritionItem, makeSleepItem } = useFeedItem(type)
+    type = type?.toLowerCase()
+    const { makeExerciseItem, makeNutritionItem, makeSleepItem } = useFeedItem(type, newItem)
 
     return (
         <Grid item>

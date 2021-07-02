@@ -5,11 +5,15 @@ import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/c
 import { Feed } from "components"
 import { Link } from "react-router-dom"
 import useStyles from "./ActivityDetails_Styles"
+import { useActivityDetails } from "hooks/useActivityDetails"
 
 
-function ActivityDetails (props) {
+function ActivityDetails ({ type, userExerciseList, userNutritionList, userSleepList }) {
 
-    const type = props.type.charAt(0).toUpperCase() + props.type.slice(1).toLowerCase()
+    type = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()
+
+    const { getActivityList } = useActivityDetails({ type, userExerciseList, userNutritionList, userSleepList })
+    const activityList = getActivityList()
 
     const classes = useStyles()
     return (
@@ -32,7 +36,7 @@ function ActivityDetails (props) {
                                     </Button>
                                 </Grid>
                                 <Grid className={classes.feedGridItem} item>
-                                    <Feed type={type} />
+                                    <Feed type={type} activityList={activityList} />
                                 </Grid>
                             </Grid>
                         </Container>

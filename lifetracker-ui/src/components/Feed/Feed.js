@@ -5,17 +5,22 @@ import { FeedItem } from "components"
 import useStyles from "./Feed_Styles"
 
 
-function Feed (props) {
+function Feed ({type, activityList}) {
     
-    
-
     const classes = useStyles()
     return (
         <div className="Feed">
             <CssBaseline />
             <Container className="feedContainer" maxWidth='sm'>
                 <Grid container>
-                    <FeedItem type={props.type} />
+                    {activityList?.map((item, index) => (
+                        <FeedItem
+                            type={type}
+                            key={index}
+                            newItem={item}
+                        />
+                    ))}
+                    {/* <FeedItem type={type} /> */}
                 </Grid>
             </Container>
         </div>

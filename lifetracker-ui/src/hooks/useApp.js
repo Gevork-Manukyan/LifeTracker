@@ -21,6 +21,9 @@ export const useApp = () => {
       
             // Get all the exercises, nutrition, and sleep of user loggin in and set the states
             const exercises = await apiClient.fetchUserExercises();
+            if (exercises?.error) setError(exercises.error)
+            if (exercises)
+                setUserExerciseList(exercises)
             
       
             setInitialized(true)
