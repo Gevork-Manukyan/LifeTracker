@@ -6,7 +6,6 @@ import { useExerciseForm } from "hooks/useExerciseForm"
 
 function ExerciseForm () {
 
-
     const { exerciseName, duration, intensity, handleTextOnChange, handleSaveBtnOnClick } = useExerciseForm()
 
     const classes = useStyles()

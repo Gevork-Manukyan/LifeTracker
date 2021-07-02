@@ -45,6 +45,11 @@ class ApiClient {
         return await this.request({ endpoint: "auth/register", method: "POST", data: credentials})
     }
 
+    async signoutUser() {
+        this.setToken(null)
+        localStorage.setItem("lifetracker_token", "")
+    }
+
     async fetchUserExercises() {
         return await this.request({ endpoint: `activities/exercise/`, method: `GET` })
     }

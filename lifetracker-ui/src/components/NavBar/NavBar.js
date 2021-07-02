@@ -7,7 +7,7 @@ import useStyles from "./NavBar_Styles"
 
 
 
-function NavBar () {
+function NavBar ({ user, setUser }) {
     const classes = useStyles()
 
     return (
@@ -42,12 +42,22 @@ function NavBar () {
                                     </Box>
                                 </NavLink>
                                 
-                                <Link to="/login">
-                                    <Button className={classes.loginBtn} variant="contained" >login</Button>
-                                </Link>
-                                <Link to="/signup">
-                                    <Button className={classes.signupBtn} variant="outlined" >Sign Up</Button>
-                                </Link>
+                                {user ? 
+                                    <Link to="/">
+                                        <Button className={classes.loginBtn} variant="contained" >Sign Out</Button>
+                                    </Link>
+                                :
+                                    <>
+                                        <Link to="/login">
+                                            <Button className={classes.loginBtn} variant="contained" >login</Button>
+                                        </Link>
+                                        <Link to="/signup">
+                                            <Button className={classes.signupBtn} variant="outlined" >Sign Up</Button>
+                                        </Link>
+                                    </>
+                                }
+
+                                
                             </Box>
                         </Toolbar>
                     </Container>
