@@ -32,6 +32,8 @@ class User {
     static async makePublicUser (user) {
         return {
             id: user.id,
+            firstName: user.first_name,
+            lastName: user.last_name,
             username: user.username,
             email: user.email,
             isAdmin: user.is_admin,
