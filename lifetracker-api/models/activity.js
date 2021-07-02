@@ -11,7 +11,7 @@ class Activity {
                     JOIN exercise_items AS eItems ON users.id = eItems.user_id
                 WHERE user_id = (SELECT id FROM users WHERE username = $1)
 
-            `, [user.username]
+            `, [user.email]
         )
 
         return results.rows;
@@ -26,11 +26,11 @@ class Activity {
                 throw new BadRequestError(`Missing required field - ${field} - in request body.`)
             }
         })
-        
+                
         const result = await db.query (
             `
                 INSERT INTO exercise_items (user_id, name, duration, intensity)
-                VALUES ((SELECT id FROM users WHERE username = $1),
+                VALUES ((SELECT id FROM users WHERE email = $1),
                         $2,
                         $3,
                         $4)
@@ -39,7 +39,7 @@ class Activity {
                           name,
                           duration,
                           intensity;
-            `, [user.username, newExercise.name, newExercise.duration, newExercise.intensity]
+            `, [user.email, newExercise.name, newExercise.duration, newExercise.intensity]
         )
         
         return result.rows[0];
