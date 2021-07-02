@@ -9,12 +9,21 @@ import { NavBar, Home, Login, Signup, ActivityPage, ActivityDetails, ExerciseFor
 
 function App() {
 
-    const { user, setUser } = useApp()
+    const { 
+        user, 
+        setUser,
+        isAuthenticated,
+        error,
+        userExerciseList,
+        userNutritionList,
+        userSleepList,
+        clearAppState,
+    } = useApp()
 
     return (
         <div className="App">
             <BrowserRouter>
-                <NavBar user={user} setUser={setUser} />
+                <NavBar user={user} setUser={setUser} clearAppState={clearAppState} isAuthenticated={isAuthenticated} />
                 
                 <Routes>
                     <Route path="/" element={<Home  />} />
