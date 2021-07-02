@@ -14,7 +14,7 @@ CREATE TABLE exercise_items (
     user_id             INTEGER NOT NULL,
     name                TEXT NOT NULL,
     duration            INTEGER NOT NULL,
-    intensity           INTEGER NOT NULL DEFAULT 1 CHECK (intensity BETWEEN 1 AND 10),
+    intensity           INTEGER NOT NULL CHECK (intensity BETWEEN 0 AND 10),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 

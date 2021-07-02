@@ -4,9 +4,10 @@ import { useState } from "react"
 
 export const useExerciseForm = () => {
 
+    const [isProcessing, setIsProcessing] = useState(false)
     const [exerciseName, setExerciseName] = useState("")
-    const [duration, setDuration] = useState(0)
-    const [intensity, setIntensity] = useState(0)
+    const [duration, setDuration] = useState()
+    const [intensity, setIntensity] = useState()
 
     const handleTextOnChange = (evt) => {
         const name = evt.target.name.toLowerCase()
@@ -27,6 +28,7 @@ export const useExerciseForm = () => {
 
     const handleSaveBtnOnClick = async (evt) => {
         evt.preventDefault()
+        
         const result = await apiClient.createNewExercise({
             newExercise: {
                 name: exerciseName,
@@ -34,7 +36,7 @@ export const useExerciseForm = () => {
                 intensity    
             }
         })
-        console.log(result.data.exercise)
+        // console.log(result.data.exercise)
     }
 
     return {

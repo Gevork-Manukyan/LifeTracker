@@ -3,8 +3,8 @@ import { useState } from "react"
 export const useNutritionForm = () => {
 
     const [foodName, setFoodName] = useState("")
-    const [quantity, setQuantity] = useState(0)
-    const [calories, setCalories] = useState(0)
+    const [quantity, setQuantity] = useState()
+    const [calories, setCalories] = useState()
 
 
     const handleTextOnChange = (evt) => {
