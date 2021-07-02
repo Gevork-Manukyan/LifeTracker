@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-export const useSignupForm = (/*{ user, setUser }*/) => {
+export const useSignupForm = ({ user, setUser }) => {
 
     const navigate = useNavigate()
     const [isProcessing, setIsProcessing] = useState(false)
@@ -17,12 +17,12 @@ export const useSignupForm = (/*{ user, setUser }*/) => {
         confirmPassword: ""
     })
 
-    // useEffect(() => {
-    //     // if logged in, take to homepage
-    //     if (user?.username) {
-    //         navigate("/")
-    //     }
-    // }, [user, navigate])
+    useEffect(() => {
+        // if logged in, take to homepage
+        if (user?.email) {
+            navigate("/")
+        }
+    }, [user, navigate])
 
     const handleTextOnChange = (evt) => {
         if (evt.target.name === "email") {
@@ -33,7 +33,7 @@ export const useSignupForm = (/*{ user, setUser }*/) => {
             }
         }
 
-        if (evt.target.name === "confirm_password") {
+        if (evt.target.name === "confirmPassword") {
             if (evt.target.value !== form.password) {
                 setErrors((err) => ({ ...err, confirmPassword: "Passwords do not match." }))
             } else {
@@ -44,25 +44,30 @@ export const useSignupForm = (/*{ user, setUser }*/) => {
         setForm((oldForm) => ({ ...oldForm, [evt.target.name]: evt.target.value }))
     }
 
-    const handleOnSubmit = async () => {
+    const handleOnSubmit = async (evt) => {
+        evt.preventDefault()
         setIsProcessing(true)
         setErrors((err) => ({ ...err, form: null }))
 
         const { data, error } = await apiClient.signupUser({
             firstName: form.firstName,
             lastName: form.lastName, 
-            email: form.email,
+            email: form.email,  
             username: form.username,
             password: form.password,
-            confirmPassword: form.confirmPassword
         })
 
         if (error) {
             setErrors((err) => ({ ...err, form: error }))
         }
-        // if (data) {
-            
-        // }
+
+        if (data) {
+            setUser(data.user)
+            apiClient.setToken(data.token)
+            localStorage.setItem("lifetracker_token", data.token)
+        }
+
+        setIsProcessing(false)
     }
 
     return {

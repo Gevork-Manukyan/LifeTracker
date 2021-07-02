@@ -22,7 +22,7 @@ function ExerciseForm () {
                             Add Exercise
                         </Typography>
 
-                        <form className={classes.form}>
+                        <form className={classes.form} onSubmit={handleSaveBtnOnClick}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
 
@@ -77,7 +77,6 @@ function ExerciseForm () {
                                 variant="contained"
                                 color="primary"
                                 className={classes.submit}
-                                onClick={handleSaveBtnOnClick}
                             >
                                 Save
                             </Button>

@@ -32,12 +32,12 @@ class User {
     static async makePublicUser (user) {
         return {
             id: user.id,
-            firstName: user.first_name,
-            lastName: user.last_name,
+            firstName: user.firstName,
+            lastName: user.lastName,
             username: user.username,
             email: user.email,
-            isAdmin: user.is_admin,
-            createdAt: user.created_at
+            isAdmin: user.isAdmin,
+            createdAt: user.createdAt
         }
     }
 
@@ -49,12 +49,14 @@ class User {
             if (!credentials.hasOwnProperty(field))
                 throw new BadRequestError(`Missing ${field}`)
         })
-        
 
         if (credentials.email.indexOf('@') <= 0)
             throw new BadRequestError('Invalid email')
 
         if (await this.fetchUserByUsername(credentials.username))
+            throw new BadRequestError(`Existing User with username ${credentials.username}`)
+        
+        if (await this.fetchUserByEmail(credentials.email))
             throw new BadRequestError(`Existing User with email ${credentials.email}`)
 
         const hashedPass = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR) 
@@ -69,11 +71,12 @@ class User {
                           last_name AS "lastName",
                           username,
                           email,
-                          is_admin AS "isAdmin";
+                          is_admin AS "isAdmin",
+                          created_at AS "createdAt";
             `, [credentials.firstName, credentials.lastName, credentials.username, normalizedEmail, hashedPass, credentials.isAdmin]
         )
 
-        return this.makePublicUser(result.rows[0]);
+        return await this.makePublicUser(result.rows[0]);
     }
 
 

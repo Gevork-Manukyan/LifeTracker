@@ -6,9 +6,9 @@ import { Link } from "@material-ui/core"
 import useStyles from "./Signup_Styles";
 
 
-function Signup () {
+function Signup ({ user, setUser }) {
 
-    const { isProcessing, errors, form, handleTextOnChange, handleOnSubmit } = useSignupForm()
+    const { isProcessing, errors, form, handleTextOnChange, handleOnSubmit } = useSignupForm({ user, setUser })
 
     const classes = useStyles()
     return (
@@ -22,7 +22,7 @@ function Signup () {
                         Sign up
                     </Typography>
 
-                    <form className={classes.form}>
+                    <form className={classes.form} onSubmit={handleOnSubmit}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -33,7 +33,7 @@ function Signup () {
                                     fullWidth
                                     id="firstName"
                                     label="First Name"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                     autoFocus
                                 />
                             </Grid>
@@ -45,7 +45,7 @@ function Signup () {
                                     id="lastName"
                                     label="Last Name"
                                     name="lastName"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -56,7 +56,7 @@ function Signup () {
                                     id="email"
                                     label="Email Address"
                                     name="email"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -67,7 +67,7 @@ function Signup () {
                                     id="username"
                                     label="Username"
                                     name="username"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -79,7 +79,7 @@ function Signup () {
                                     label="Password"
                                     type="password"
                                     id="password"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -91,7 +91,7 @@ function Signup () {
                                     label="Confirm Password"
                                     type="password"
                                     id="confirmPassword"
-                                    onClick={handleTextOnChange}
+                                    onChange={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -108,7 +108,6 @@ function Signup () {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                            onClick={handleOnSubmit}
                         >
                             Sign Up
                         </Button>

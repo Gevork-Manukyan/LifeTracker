@@ -26,6 +26,7 @@ export const useExerciseForm = () => {
     }
 
     const handleSaveBtnOnClick = async (evt) => {
+        evt.preventDefault()
         const result = apiClient.createNewExercise({
             newExercise: {
                 name: exerciseName,
