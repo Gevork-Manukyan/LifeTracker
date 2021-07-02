@@ -20,7 +20,7 @@ export const useSignupForm = ({ user, setUser }) => {
     useEffect(() => {
         // if logged in, take to homepage
         if (user?.email) {
-            navigate("/")
+            navigate("/activity")
         }
     }, [user, navigate])
 
