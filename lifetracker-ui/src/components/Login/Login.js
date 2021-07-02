@@ -2,12 +2,14 @@ import "./Login.css"
 
 import { Container, Typography, Grid, Button, FormControlLabel, TextField, CssBaseline, Checkbox } from "@material-ui/core"
 import { Link } from "@material-ui/core"
-// import LockOutlinedIcon from '@material-ui/icons'
+import { useLoginForm } from "hooks/useLoginForm"
 import useStyles from './Login_Styles'
 
-function Login () {
-    const classes = useStyles()
+function Login ({ user, setUser }) {
 
+    const { isProcessing, errors, form, handleOnSubmit, handleTextOnChange} = useLoginForm({ user, setUser })
+
+    const classes = useStyles()
     return (
         <div className="Login">
             <Container component="main" maxWidth="xs">
@@ -18,7 +20,7 @@ function Login () {
                         Login
                     </Typography>
 
-                    <form className={classes.form}>
+                    <form className={classes.form} onSubmit={handleOnSubmit}>
                         <TextField
                             variant="outlined"
                             margin="normal"
@@ -27,7 +29,7 @@ function Login () {
                             id="email"
                             label="Email Address"
                             name="email"
-                            autoComplete="email"
+                            onChange={handleTextOnChange}
                             autoFocus
                         />
                         <TextField
@@ -39,7 +41,7 @@ function Login () {
                             label="Password"
                             type="password"
                             id="password"
-                            autoComplete="current-password"
+                            onChange={handleTextOnChange}
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
