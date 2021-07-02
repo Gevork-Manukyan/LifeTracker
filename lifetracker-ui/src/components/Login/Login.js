@@ -18,7 +18,7 @@ function Login () {
                         Login
                     </Typography>
 
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form}>
                         <TextField
                             variant="outlined"
                             margin="normal"

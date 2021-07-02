@@ -9,12 +9,35 @@ class Activity {
                 SELECT eItems.id AS "exerciseID", name, duration, intensity 
                 FROM users
                     JOIN exercise_items AS eItems ON users.id = eItems.user_id
-                WHERE user_id = (SELECT id FROM users WHERE email = $1)
+                WHERE user_id = (SELECT id FROM users WHERE username = $1)
 
-            `, [user.email]
+            `, [user.username]
         )
 
         return results.rows;
+    }
+
+    // create new exercise 
+    static async createExercise ({ user, newExercise }) {
+        
+        const requiredFields = ["name", "duration", "intensity"]
+        requiredFields.forEach((field) => {
+            if (!newExercise?.hasOwnProperty(field)) {
+                throw new BadRequestError(`Missing required field - ${field} - in request body.`)
+            }
+        })
+        console.log(user.username)
+        const result = await db.query (
+            `
+                INSERT INTO exercise_items (user_id, name, duration, intensity)
+                VALUES ((SELECT id FROM users WHERE username = '$1'),
+                        $2,
+                        $3,
+                        $4);
+            `, [user.username, newExercise.name, newExercise.duration, newExercise.intensity]
+        )
+        
+        return result.rows[0];
     }
 
     // list all sleeps related to specific user

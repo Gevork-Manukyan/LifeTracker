@@ -1,5 +1,5 @@
 import useStyles from "./Header_Styels"
-import { Container, Grid, Typography } from "@material-ui/core"
+import { Grid, Typography } from "@material-ui/core"
 
 function Header ({ type }) {
 

@@ -1,6 +1,6 @@
 import "./FeedItem.css"
 
-import { Grid, CssBaseline } from "@material-ui/core"
+import { Grid } from "@material-ui/core"
 import { useFeedItem } from "hooks/useFeedItem"
 
 

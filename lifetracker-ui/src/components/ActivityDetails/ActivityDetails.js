@@ -1,9 +1,9 @@
 import "./ActivityDetails.css"
 
-import  { ExerciseForm, Header } from "components"
+import  { Header } from "components"
 import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/core"
 import { Feed } from "components"
-import { Routes, Route, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 import useStyles from "./ActivityDetails_Styles"
 
 

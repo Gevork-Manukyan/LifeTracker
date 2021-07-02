@@ -22,6 +22,7 @@ CREATE TABLE sleep_items (
     date                DATE NOT NULL,      --'yyyy-mm-dd' 
     start_time          TIME (0) NOT NULL,  --'hh:mm:ss'   hh: 0-23  mm: 0-59  ss: 0-59
     end_time            TIME (0) NOT NULL,
+    hours               INTEGER,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 

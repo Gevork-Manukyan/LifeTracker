@@ -1,13 +1,13 @@
 import "./Feed.css"
 
-import { CssBaseline, Container, Grid, Button, Typography } from "@material-ui/core"
+import { CssBaseline, Container, Grid } from "@material-ui/core"
 import { FeedItem } from "components"
-import useStyles from "./Feed_Styles"
+// import useStyles from "./Feed_Styles"
 
 
 function Feed (props) {
     
-    const classes = useStyles()
+    // const classes = useStyles()
 
     return (
         <div className="Feed">

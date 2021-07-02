@@ -1,13 +1,16 @@
 import "./Signup.css"
 
 import { Container, Typography, Grid, Button, FormControlLabel, TextField, CssBaseline, Checkbox } from "@material-ui/core"
+import {useSignupForm  } from "hooks/useSignupForm"
 import { Link } from "@material-ui/core"
 import useStyles from "./Signup_Styles";
 
 
 function Signup () {
-    const classes = useStyles()
 
+    const { isProcessing, errors, form, handleTextOnChange, handleOnSubmit } = useSignupForm()
+
+    const classes = useStyles()
     return (
         <div className="Signup">
 
@@ -19,7 +22,7 @@ function Signup () {
                         Sign up
                     </Typography>
 
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form}>
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -30,6 +33,7 @@ function Signup () {
                                     fullWidth
                                     id="firstName"
                                     label="First Name"
+                                    onClick={handleTextOnChange}
                                     autoFocus
                                 />
                             </Grid>
@@ -41,7 +45,7 @@ function Signup () {
                                     id="lastName"
                                     label="Last Name"
                                     name="lastName"
-                                    autoComplete="lname"
+                                    onClick={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -52,7 +56,18 @@ function Signup () {
                                     id="email"
                                     label="Email Address"
                                     name="email"
-                                    autoComplete="email"
+                                    onClick={handleTextOnChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    id="username"
+                                    label="Username"
+                                    name="username"
+                                    onClick={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -64,7 +79,19 @@ function Signup () {
                                     label="Password"
                                     type="password"
                                     id="password"
-                                    autoComplete="current-password"
+                                    onClick={handleTextOnChange}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    variant="outlined"
+                                    required
+                                    fullWidth
+                                    name="confirmPassword"
+                                    label="Confirm Password"
+                                    type="password"
+                                    id="confirmPassword"
+                                    onClick={handleTextOnChange}
                                 />
                             </Grid>
                             <Grid item xs={12}>
@@ -81,6 +108,7 @@ function Signup () {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
+                            onClick={handleOnSubmit}
                         >
                             Sign Up
                         </Button>

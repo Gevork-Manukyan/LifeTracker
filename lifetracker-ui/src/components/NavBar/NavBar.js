@@ -23,30 +23,30 @@ function NavBar () {
                             <Box className={classes.links} >
                                 <NavLink to="/">
                                     <Box className={classes.linkItems}>
-                                        <Typography variant="span">Activity</Typography>
+                                        <Typography variant="body2">Activity</Typography>
                                     </Box>
                                 </NavLink>
                                 <NavLink to="/exercise">
                                     <Box className={classes.linkItems}>
-                                        <Typography variant="h7">Exercise</Typography>
+                                        <Typography variant="body2">Exercise</Typography>
                                     </Box>
                                 </NavLink>
                                 <NavLink to="/nutrition">
                                     <Box className={classes.linkItems}>
-                                        <Typography variant="h7">Nutritional</Typography>
+                                        <Typography variant="body2">Nutritional</Typography>
                                     </Box>
                                 </NavLink>
                                 <NavLink to="/sleep">
                                     <Box className={classes.linkItems}>
-                                        <Typography variant="h7">Sleep</Typography>
+                                        <Typography variant="body2">Sleep</Typography>
                                     </Box>
                                 </NavLink>
                                 
                                 <Link to="/login">
-                                    <Button className={classes.loginBtn} variant="contained" color="">login</Button>
+                                    <Button className={classes.loginBtn} variant="contained" >login</Button>
                                 </Link>
                                 <Link to="/signup">
-                                    <Button className={classes.signupBtn} variant="outlined" color="">Sign Up</Button>
+                                    <Button className={classes.signupBtn} variant="outlined" >Sign Up</Button>
                                 </Link>
                             </Box>
                         </Toolbar>

@@ -1,5 +1,6 @@
-
+import apiClient from "services/apiClient"
 import { useState } from "react"
+
 
 export const useExerciseForm = () => {
 
@@ -24,10 +25,21 @@ export const useExerciseForm = () => {
         }
     }
 
+    const handleSaveBtnOnClick = async (evt) => {
+        const result = apiClient.createNewExercise({
+            newExercise: {
+                name: exerciseName,
+                duration,
+                intensity    
+            }
+        })
+    }
+
     return {
         exerciseName,
         duration,
         intensity,
-        handleTextOnChange
+        handleTextOnChange,
+        handleSaveBtnOnClick
     }
 }

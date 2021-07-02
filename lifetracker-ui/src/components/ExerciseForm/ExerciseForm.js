@@ -7,7 +7,7 @@ import { useExerciseForm } from "hooks/useExerciseForm"
 function ExerciseForm () {
 
 
-    const { exerciseName, duration, intensity, handleTextOnChange } = useExerciseForm()
+    const { exerciseName, duration, intensity, handleTextOnChange, handleSaveBtnOnClick } = useExerciseForm()
 
     const classes = useStyles()
     return (
@@ -77,6 +77,7 @@ function ExerciseForm () {
                                 variant="contained"
                                 color="primary"
                                 className={classes.submit}
+                                onClick={handleSaveBtnOnClick}
                             >
                                 Save
                             </Button>

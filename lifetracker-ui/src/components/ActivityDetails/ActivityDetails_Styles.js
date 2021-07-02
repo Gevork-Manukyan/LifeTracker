@@ -13,7 +13,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign: 'end',
     },
     addBtnText: {
-        fontFamily: "Roboto, Cantarell, Helvetica Neue, sans-serif"
+        fontFamily: "Roboto, Cantarell, Helvetica Neue, sans-serif",
+        color: "black",
     },
     feedGridItem: {
         marginTop: "50px"
