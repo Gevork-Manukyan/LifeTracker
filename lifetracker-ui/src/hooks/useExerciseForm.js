@@ -36,7 +36,6 @@ export const useExerciseForm = () => {
                 intensity    
             }
         })
-        // console.log(result.data.exercise)
     }
 
     return {

@@ -33,6 +33,8 @@ class ApiClient {
 
     }
 
+    /* AUTHERIZATION */
+
     async fetchUserFromToken () {
         return await this.request({ endpoint: "auth/me", method: "GET"})
     }
@@ -50,6 +52,8 @@ class ApiClient {
         localStorage.setItem("lifetracker_token", "")
     }
 
+    /* ACTIVITIES */
+
     async fetchUserExercises() {
         return await this.request({ endpoint: `activities/exercise/`, method: `GET` })
     }
@@ -58,9 +62,11 @@ class ApiClient {
         return await this.request({ endpoint: `activities/exercise/`, method: `POST`, data: { newExercise } })
     }
 
+
     async createNewNutrition(newNutrition) {
         return await this.request({ endpoint: `activities/nutrition/`, method: `POST`, data: { newNutrition } })
     }
+
 
     async createNewSleep(newSleep) {
         return await this.request({ endpoint: `activities/sleep/`, method: `POST`, data: { newSleep } })

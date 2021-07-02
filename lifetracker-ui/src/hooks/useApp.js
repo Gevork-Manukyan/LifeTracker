@@ -20,6 +20,8 @@ export const useApp = () => {
             if (data) setUser(data.user)
       
             // Get all the exercises, nutrition, and sleep of user loggin in and set the states
+            const exercises = await apiClient.fetchUserExercises();
+            
       
             setInitialized(true)
           }
