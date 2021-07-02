@@ -30,10 +30,15 @@ class Activity {
         const result = await db.query (
             `
                 INSERT INTO exercise_items (user_id, name, duration, intensity)
-                VALUES ((SELECT id FROM users WHERE username = '$1'),
+                VALUES ((SELECT id FROM users WHERE username = $1),
                         $2,
                         $3,
-                        $4);
+                        $4)
+                RETURNING id,
+                          user_id AS "userId",
+                          name,
+                          duration,
+                          intensity;
             `, [user.username, newExercise.name, newExercise.duration, newExercise.intensity]
         )
         
