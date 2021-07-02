@@ -14,11 +14,10 @@ router.get("/exercise", security.requireAuthenticatedUser, async(req, res, next)
     }
 })
 
-router.post("/exercise", /*security.requireAuthenticatedUser,*/ async(req, res, next) => {
+router.post("/exercise", security.requireAuthenticatedUser, async(req, res, next) => {
     // creates new exercise activity 
     try {
-        // const { user } = res.locals
-        const user = { username: "BillyBob" }
+        const { user } = res.locals
         const { newExercise } = req.body
         const exercise = await Activity.createExercise({ user, newExercise })
         return res.status(201).json({ exercise })

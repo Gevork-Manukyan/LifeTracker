@@ -26,7 +26,7 @@ class Activity {
                 throw new BadRequestError(`Missing required field - ${field} - in request body.`)
             }
         })
-        console.log(user.username)
+        
         const result = await db.query (
             `
                 INSERT INTO exercise_items (user_id, name, duration, intensity)

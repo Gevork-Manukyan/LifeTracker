@@ -1,19 +1,12 @@
-    INSERT INTO users (id, username, email, password)
-    VAlues (
+    INSERT INTO users (id, first_name, last_name, username, email, password, is_admin)
+    VALUES (
         1,
+        'Billy',
+        'Bob',
         'BillyBob',
         'BillyBob@gmail.com',
-        'password'
-    ), (
-        2,
-        'PhillSteve',
-        'PhillSteve@gmail.com',
-        'password'
-    ), (
-        3,
-        'Krillin',
-        'Krillin@gmail.com',
-        'password'
+        'password',
+        false
     );
     
     INSERT INTO exercise_items (user_id, name, duration, intensity) 
@@ -27,19 +20,4 @@
         'sit ups',
         100,
         3
-    ), (
-        2,
-        'push ups',
-        42,
-        1
-    ), (
-        2,
-        'sit ups',
-        200,
-        10
-    ), (
-        3,
-        'squats',
-        5,
-        9
     );

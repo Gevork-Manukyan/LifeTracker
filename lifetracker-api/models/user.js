@@ -42,7 +42,7 @@ class User {
 
     static async register (credentials) {
 
-        const requiredFields = ["username", "email", "password", "isAdmin"]
+        const requiredFields = [ "firstName", "lastName", "username", "email", "password", "isAdmin"]
         requiredFields.forEach(field => {
             if (!credentials.hasOwnProperty(field))
                 throw new BadRequestError(`Missing ${field}`)
@@ -52,7 +52,7 @@ class User {
         if (credentials.email.indexOf('@') <= 0)
             throw new BadRequestError('Invalid email')
 
-        if (await this.fetchUserByEmail(credentials.email))
+        if (await this.fetchUserByUsername(credentials.username))
             throw new BadRequestError(`Existing User with email ${credentials.email}`)
 
         const hashedPass = await bcrypt.hash(credentials.password, BCRYPT_WORK_FACTOR) 
@@ -60,25 +60,37 @@ class User {
 
         const result = await db.query(
             `
-                INSERT INTO users (username, email, password, is_admin)
-                VALUES ($1, $2, $3, $4)
+                INSERT INTO users (first_name, last_name, username, email, password, is_admin)
+                VALUES ($1, $2, $3, $4, $5, $6)
                 RETURNING id, 
+                          first_name AS "firstName",
+                          last_name AS "lastName",
                           username,
                           email,
-                          is_admin AS isAdmin
-            `, [credentials.username, normalizedEmail, hashedPass, credentials.isAdmin]
+                          is_admin AS "isAdmin";
+            `, [credentials.firstName, credentials.lastName, credentials.username, normalizedEmail, hashedPass, credentials.isAdmin]
         )
 
         return this.makePublicUser(result.rows[0]);
     }
 
 
+    static async fetchUserByUsername (username) {
+
+        if (!username)
+            throw new NotFoundError("No username provided")
+
+        const result = await db.query(` SELECT * FROM users WHERE username = $1 `, [username])
+
+        return result.rows[0];
+    }
+
     static async fetchUserByEmail (email) {
 
         if (!email)
             throw new NotFoundError("No email provided")
 
-        const result = await db.query(` SELECT * FROM users WHERE email = $1 `, [email.toLowerCase()])
+        const result = await db.query(` SELECT * FROM users WHERE email = $1 `, [email])
 
         return result.rows[0];
     }
