@@ -8,24 +8,37 @@ export const useFeedItem = (type, newItem) => {
 
     const classes = useStyles() 
 
+    console.log(newItem)
     const header = () => {
         return (
             <CardHeader 
                     className={classes.cardHeader}
                     avatar={
                         <Avatar className={classes.avatar}>
-                            <Typography className={classes.avatarLetter}>{newItem.name.charAt(0)}</Typography>
+                            {type === "sleep" ? 
+                                <Typography className={classes.avatarLetter}>{}</Typography>
+                                :
+                                <Typography className={classes.avatarLetter}>{newItem.name.charAt(0)}</Typography>
+                            }
                         </Avatar>
                     }
                     disableTypography={false}
                     title={
                         <Typography className={clsx(classes.cardTitle, type === "sleep" ? classes.sleepTitle : null )}>
-                            {newItem.name}
+                            {type === "sleep" ? 
+                                newItem.start_date.split("T")[0]
+                                :
+                                newItem.name
+                            }
                         </Typography>
                     }
                     subheader={
                         <Typography className={classes.cardSubtitle}>
-                            07/01/2001
+                            {type === "sleep" ?
+                                "TO " + newItem.end_date.split("T")[0]
+                                :
+                                "07/01/2021"
+                            }
                         </Typography>
                     }
                 />
@@ -67,26 +80,6 @@ export const useFeedItem = (type, newItem) => {
     const makeNutritionItem = () => {
         return ( 
             <Card className={classes.nutritionCard}>
-                {/* <CardHeader 
-                    className={classes.cardHeader}
-                    avatar={
-                        <Avatar className={classes.avatar}>
-                            <Typography className={classes.avatarLetter}>S</Typography>
-                        </Avatar>
-                    }
-                    disableTypography={false}
-                    title={
-                        <Typography className={classes.cardTitle}>
-                            Taco
-                        </Typography>
-                    }
-                    subheader={
-                        <Typography className={classes.cardSubtitle}>
-                            07/01/2001
-                        </Typography>
-                    }
-                /> */}
-
                 {header()}
                 <CardContent className={classes.cardContent}>
                     <Grid className={classes.feedItemGrid} container>
@@ -119,26 +112,6 @@ export const useFeedItem = (type, newItem) => {
     const makeSleepItem = () => {
         return ( 
             <Card className={classes.sleepCard}>
-                {/* <CardHeader 
-                    className={classes.cardHeader}
-                    avatar={
-                        <Avatar className={classes.avatar}>
-                            <Typography className={classes.avatarLetter}>S</Typography>
-                        </Avatar>
-                    }
-                    disableTypography={false}
-                    title={
-                        <Typography className={clsx(classes.cardTitle, classes.sleepTitle)}>
-                            Jun 24, 2021
-                        </Typography>
-                    }
-                    subheader={
-                        <Typography className={classes.cardSubtitle}>
-                            to Jun 25, 2021
-                        </Typography>
-                    }
-                /> */}
-
                 {header()}
                 <CardContent className={classes.cardContent}>
                     <Grid className={classes.feedItemGrid} justify='center' container>
@@ -148,7 +121,7 @@ export const useFeedItem = (type, newItem) => {
                                     <Typography className={classes.columnTitle}>Start Time</Typography>
                                 </Grid>
                                 <Grid item className={classes.columnItem}>
-                                    <Typography className={classes.columnValue} textalign="center" >3:33 AM</Typography>
+                                    <Typography className={classes.columnValue} textalign="center" >{newItem.start_time}</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -158,12 +131,12 @@ export const useFeedItem = (type, newItem) => {
                                     <Typography className={classes.columnTitle}>End Time</Typography>
                                 </Grid>
                                 <Grid item className={classes.columnItem}>
-                                    <Typography className={classes.columnValue} textalign="center" >8:15 PM</Typography>
+                                    <Typography className={classes.columnValue} textalign="center">{newItem.end_time}</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
                         <Grid item>
-                            <Typography className={classes.cardContentFooter}>- 12 Hours -</Typography>
+                            <Typography className={classes.cardContentFooter}>- {newItem.hours} Hours -</Typography>
                         </Grid>
                     </Grid>
                 </CardContent>

@@ -110,6 +110,35 @@ class Activity {
     // create new sleep
     static async createSleep ({ user, newSleep }) {
 
+        const requiredFields = ["start_date", "end_date", "start_time", "end_time", "hours"]
+        requiredFields.forEach((field) => {
+            if (!newSleep?.hasOwnProperty(field)) {
+                throw new BadRequestError(`Missing required field - ${field} - in request body.`)
+            }
+        })
+
+        const normalizedEmail = user.email.toLowerCase()
+
+        const result = await db.query (
+            `
+                INSERT INTO sleep_items (user_id, start_date, end_date, start_time, end_time, hours)
+                VALUES ((SELECT id FROM users WHERE email = $1),
+                        $2,
+                        $3,
+                        $4,
+                        $5,
+                        $6)
+                RETURNING id AS "sleepID",
+                          user_id AS "userId",
+                          start_date,
+                          end_date,
+                          start_time,
+                          end_time,
+                          hours;
+            `, [normalizedEmail, newSleep.startDate, newSleep.endDate, newSleep.startTime, newSleep.endTime, newSleep.hours]
+        )
+
+        return result.rows[0];
     }
 }
 

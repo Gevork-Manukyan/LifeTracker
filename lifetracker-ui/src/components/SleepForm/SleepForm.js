@@ -4,9 +4,9 @@ import { CssBaseline, Grid, Typography, Container, TextField, Button } from "@ma
 import { Header } from "components"
 import { useSleepForm } from "hooks/useSleepForm"
 
-function SleepForm () {
+function SleepForm ({ setUserSleepList }) {
 
-    const { startTime, endTime, handleDateOnChange } = useSleepForm()
+    const { start, end, hours, handleDateOnChange, handleSaveBtnOnClick } = useSleepForm({ setUserSleepList })
 
     const classes = useStyles()
     return (
@@ -21,7 +21,7 @@ function SleepForm () {
                             Record Sleep
                         </Typography>
 
-                        <form className={classes.form}>
+                        <form className={classes.form} onSubmit={handleSaveBtnOnClick}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
 
@@ -34,7 +34,7 @@ function SleepForm () {
                                         id="start_time"
                                         label="Start Time"
                                         name="start_time"
-                                        value={startTime}
+                                        value={start}
                                         onChange={handleDateOnChange}
                                         InputLabelProps={{
                                             shrink: true,
@@ -55,7 +55,7 @@ function SleepForm () {
                                         InputLabelProps={{
                                             shrink: true,
                                           }}
-                                        value={endTime}
+                                        value={end}
                                         onChange={handleDateOnChange}
                                     />
                                 </Grid>
