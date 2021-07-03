@@ -20,17 +20,17 @@ export const useApp = () => {
             if (data) setUser(data.user)
       
             // Get all the exercises, nutrition, and sleep of user loggin in and set the states
-            const exercises = await apiClient.fetchUserExercises();
-            if (exercises?.error) setError(exercises.error)
-            if (exercises) setUserExerciseList(exercises?.data?.activities)
+            // const exercises = await apiClient.fetchUserExercises();
+            // if (exercises?.error) setError(exercises.error)
+            // if (exercises) setUserExerciseList(exercises?.data?.activities)
             
             const nutritions = await apiClient.fetchUserNutritions();
             if (nutritions?.error) setError(nutritions.error)
-            if (nutritions) setUserExerciseList(nutritions?.data?.activities)
+            if (nutritions) setUserNutritionList(nutritions?.data?.activities)
 
-            const sleeps = await apiClient.fetchUserSleeps();
-            if (sleeps?.error) setError(sleeps.error)
-            if (sleeps) setUserExerciseList(sleeps?.data?.activities)
+            // const sleeps = await apiClient.fetchUserSleeps();
+            // if (sleeps?.error) setError(sleeps.error)
+            // if (sleeps) setUserSleepList(sleeps?.data?.activities)
       
             setInitialized(true)
           }

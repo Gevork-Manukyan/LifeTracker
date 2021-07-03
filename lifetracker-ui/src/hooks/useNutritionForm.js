@@ -42,8 +42,8 @@ export const useNutritionForm = ({ setUserNutritionList }) => {
         })
 
         const result = await apiClient.fetchUserNutritions()
-        // const newList = result.data.activities
-        // setUserNutritionList(newList)
+        const newList = result.data.activities
+        setUserNutritionList(newList)
 
         setIsProcessing(false)
         navigate("/nutrition")

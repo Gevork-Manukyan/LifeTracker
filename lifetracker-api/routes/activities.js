@@ -11,6 +11,7 @@ router.get("/exercise", security.requireAuthenticatedUser, async(req, res, next)
         const activities = await Activity.listExercises({ user })
         return res.status(200).json({ activities });
     } catch (err) {
+        console.log("HERE")
         return next(err);
     }
 })
@@ -32,7 +33,6 @@ router.get("/nutrition", security.requireAuthenticatedUser, async(req, res, next
     try {
         const { user } = res.locals
         const activities = await Activity.listNutritions({ user })
-        console.log(activities)
         return res.status(200).json({ activities })
     } catch (err) {
         return next(err);
