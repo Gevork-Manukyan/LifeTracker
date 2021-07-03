@@ -110,7 +110,7 @@ class Activity {
     // create new sleep
     static async createSleep ({ user, newSleep }) {
 
-        const requiredFields = ["start_date", "end_date", "start_time", "end_time", "hours"]
+        const requiredFields = ["startDate", "endDate", "startTime", "endTime", "hours"]
         requiredFields.forEach((field) => {
             if (!newSleep?.hasOwnProperty(field)) {
                 throw new BadRequestError(`Missing required field - ${field} - in request body.`)

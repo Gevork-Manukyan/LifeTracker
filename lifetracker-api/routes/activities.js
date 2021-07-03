@@ -11,7 +11,6 @@ router.get("/exercise", security.requireAuthenticatedUser, async(req, res, next)
         const activities = await Activity.listExercises({ user })
         return res.status(200).json({ activities });
     } catch (err) {
-        console.log("HERE")
         return next(err);
     }
 })
@@ -62,10 +61,11 @@ router.get("/sleep", security.requireAuthenticatedUser, async(req, res, next) =>
     }
 })
 
-router.post("/sleep", security.requireAuthenticatedUser, async(re, res, next) => {
+router.post("/sleep", security.requireAuthenticatedUser, async(req, res, next) => {
     // creates new sleep activity
     try {
         const { user } = res.locals
+        console.log(req.body)
         const { newSleep } = req.body
         const sleep = await Activity.createSleep({ user, newSleep })
         return res.status(201).json({ sleep })

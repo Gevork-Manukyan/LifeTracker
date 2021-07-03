@@ -8,18 +8,15 @@ export const useFeedItem = (type, newItem) => {
 
     const classes = useStyles() 
 
-    console.log(newItem)
     const header = () => {
         return (
             <CardHeader 
                     className={classes.cardHeader}
-                    avatar={
+                    avatar={type === "sleep" ?
+                        null
+                        :
                         <Avatar className={classes.avatar}>
-                            {type === "sleep" ? 
-                                <Typography className={classes.avatarLetter}>{}</Typography>
-                                :
                                 <Typography className={classes.avatarLetter}>{newItem.name.charAt(0)}</Typography>
-                            }
                         </Avatar>
                     }
                     disableTypography={false}
@@ -121,7 +118,7 @@ export const useFeedItem = (type, newItem) => {
                                     <Typography className={classes.columnTitle}>Start Time</Typography>
                                 </Grid>
                                 <Grid item className={classes.columnItem}>
-                                    <Typography className={classes.columnValue} textalign="center" >{newItem.start_time}</Typography>
+                                    <Typography className={classes.columnValue} textalign="center" >{newItem.start_time.substring(0,5)}</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -131,7 +128,7 @@ export const useFeedItem = (type, newItem) => {
                                     <Typography className={classes.columnTitle}>End Time</Typography>
                                 </Grid>
                                 <Grid item className={classes.columnItem}>
-                                    <Typography className={classes.columnValue} textalign="center">{newItem.end_time}</Typography>
+                                    <Typography className={classes.columnValue} textalign="center">{newItem.end_time.substring(0,5)}</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>

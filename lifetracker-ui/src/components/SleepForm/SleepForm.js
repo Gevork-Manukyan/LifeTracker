@@ -6,7 +6,7 @@ import { useSleepForm } from "hooks/useSleepForm"
 
 function SleepForm ({ setUserSleepList }) {
 
-    const { start, end, hours, handleDateOnChange, handleSaveBtnOnClick } = useSleepForm({ setUserSleepList })
+    const { start, end, handleDateOnChange, handleSaveBtnOnClick } = useSleepForm({ setUserSleepList })
 
     const classes = useStyles()
     return (

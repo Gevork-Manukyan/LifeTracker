@@ -9,7 +9,7 @@ export const useSleepForm = ({ setUserSleepList }) => {
     const [isProcessing, setIsProcessing] = useState(false)
     const [start, setStart] = useState("")
     const [end, setEnd] = useState("")
-    const [hours, setHours] = useState(null)
+    // const [hours, setHours] = useState(0)
 
     const handleDateOnChange = (evt) => {
         if (evt.target.name.toLowerCase() === "start_time")
@@ -26,7 +26,7 @@ export const useSleepForm = ({ setUserSleepList }) => {
         const [startDate, startTime] = start.split("T")
         const [endDate, endTime] = end.split("T")
 
-        setHours( moment(new Date(end)).diff(moment(new Date(start)), "hours", false) )
+        const hours = Number(moment(new Date(end)).diff(moment(new Date(start)), "hours", false)) 
 
         await apiClient.createNewSleep({
             newSleep: {
@@ -50,7 +50,7 @@ export const useSleepForm = ({ setUserSleepList }) => {
         isProcessing,
         start,
         end,
-        hours,
+        // hours,
         handleDateOnChange,
         handleSaveBtnOnClick,
     }
