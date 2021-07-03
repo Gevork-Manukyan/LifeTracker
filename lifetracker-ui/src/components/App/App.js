@@ -18,8 +18,11 @@ function App() {
         userNutritionList,
         userSleepList,
         setUserExerciseList,
+        setUserNutritionList,
+        setUserSleepList,
         clearAppState,
     } = useApp()
+
 
     return (
         <div className="App">
@@ -34,9 +37,9 @@ function App() {
                     <Route path="/exercise" element={<ActivityDetails type='exercise' activityList={userExerciseList} />} />
                     <Route path="/exercise/create" element={<ExerciseForm setUserExerciseList={setUserExerciseList} />} />
                     <Route path="/nutrition" element={<ActivityDetails type='nutrition' activityList={userNutritionList} />} />
-                    <Route path="/nutrition/create" element={<NutritionForm />} />
+                    <Route path="/nutrition/create" element={<NutritionForm setUserNutritionList={setUserNutritionList} />} />
                     <Route path="/sleep" element={<ActivityDetails type='sleep' activityList={userSleepList} />} />
-                    <Route path="/sleep/create" element={<SleepForm />} />
+                    <Route path="/sleep/create" element={<SleepForm setUserSleepList={setUserSleepList} />} />
 
                 </Routes>
             </BrowserRouter>

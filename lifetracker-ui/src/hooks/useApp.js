@@ -24,13 +24,13 @@ export const useApp = () => {
             if (exercises?.error) setError(exercises.error)
             if (exercises) setUserExerciseList(exercises?.data?.activities)
             
-            // const nutritions = await apiClient.fetchUserNutritions();
-            // if (nutritions?.error) setError(nutritions.error)
-            // if (nutritions) setUserExerciseList(nutritions?.data?.activities)
+            const nutritions = await apiClient.fetchUserNutritions();
+            if (nutritions?.error) setError(nutritions.error)
+            if (nutritions) setUserExerciseList(nutritions?.data?.activities)
 
-            // const sleeps = await apiClient.fetchUserSleeps();
-            // if (sleeps?.error) setError(sleeps.error)
-            // if (sleeps) setUserExerciseList(sleeps?.data?.activities)
+            const sleeps = await apiClient.fetchUserSleeps();
+            if (sleeps?.error) setError(sleeps.error)
+            if (sleeps) setUserExerciseList(sleeps?.data?.activities)
       
             setInitialized(true)
           }
@@ -64,6 +64,8 @@ export const useApp = () => {
         userNutritionList,
         userSleepList,
         setUserExerciseList,
+        setUserNutritionList,
+        setUserSleepList,
         clearAppState,
     }
 

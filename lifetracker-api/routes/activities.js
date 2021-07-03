@@ -30,8 +30,10 @@ router.post("/exercise", security.requireAuthenticatedUser, async(req, res, next
 router.get("/nutrition", security.requireAuthenticatedUser, async(req, res, next) => {
     // return all nutrition items associated to user
     try {
-        const nutritions = Activity.listNutritions(res.locals.user)
-        return res.status(200).json({ nutritions })
+        const { user } = res.locals
+        const activities = await Activity.listNutritions({ user })
+        console.log(activities)
+        return res.status(200).json({ activities })
     } catch (err) {
         return next(err);
     }
@@ -40,7 +42,10 @@ router.get("/nutrition", security.requireAuthenticatedUser, async(req, res, next
 router.post("/nutrition", security.requireAuthenticatedUser, async(req, res, next) => {
     // creates new nutrition activity
     try {
-        
+        const { user } = res.locals
+        const { newNutrition } = req.body
+        const nutrition = await Activity.createNutrition({ user, newNutrition })
+        return res.status(201).json({ nutrition })
     } catch (err) {
         return next(err);
     }
@@ -49,8 +54,9 @@ router.post("/nutrition", security.requireAuthenticatedUser, async(req, res, nex
 router.get("/sleep", security.requireAuthenticatedUser, async(req, res, next) => {
     // return all sleep activities associated to user
     try {
-        const sleeps = Activity.listSleeps(res.locals.user)
-        return res.status(200).json({ sleeps })
+        const { user } = res.locals
+        const activities = await Activity.listSleeps({ user })
+        return res.status(200).json({ activities })
     } catch (err) {
         return next(err);
     }
@@ -59,7 +65,10 @@ router.get("/sleep", security.requireAuthenticatedUser, async(req, res, next) =>
 router.post("/sleep", security.requireAuthenticatedUser, async(re, res, next) => {
     // creates new sleep activity
     try {
-        
+        const { user } = res.locals
+        const { newSleep } = req.body
+        const sleep = await Activity.createSleep({ user, newSleep })
+        return res.status(201).json({ sleep })
     } catch (err) {
         return next(err);
     }

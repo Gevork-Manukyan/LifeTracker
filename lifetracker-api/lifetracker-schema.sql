@@ -21,19 +21,19 @@ CREATE TABLE exercise_items (
 CREATE TABLE sleep_items (
     id                  SERIAL PRIMARY KEY,
     user_id             INTEGER NOT NULL,
-    date                DATE NOT NULL,      --'yyyy-mm-dd' 
+    start_date          DATE NOT NULL,      --'yyyy-mm-dd' 
+    end_date            DATE NOT NULL,
     start_time          TIME (0) NOT NULL,  --'hh:mm:ss'   hh: 0-23  mm: 0-59  ss: 0-59
     end_time            TIME (0) NOT NULL,
-    hours               INTEGER,
+    hours               INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE nutritional_items (
     id                  SERIAL PRIMARY KEY,
     user_id             INTEGER NOT NULL,
-    food_name           TEXT NOT NULL,
+    name                TEXT NOT NULL,
     calories            INTEGER NOT NULL,
     quantity            INTEGER NOT NULL DEFAULT 1,
-    food_category       TEXT,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

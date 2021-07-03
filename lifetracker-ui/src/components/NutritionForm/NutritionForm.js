@@ -4,9 +4,9 @@ import { CssBaseline, Container, Grid, Typography, TextField, Button } from "@ma
 import { Header } from "components"
 import { useNutritionForm } from "hooks/useNutritionForm"
 
-function NutritionForm () {
+function NutritionForm ({ setUserNutritionList }) {
 
-    const { foodName, quantity, calories, handleTextOnChange } = useNutritionForm()
+    const { foodName, quantity, calories, isProcessing, handleTextOnChange, handleSaveBtnOnClick } = useNutritionForm({ setUserNutritionList })
 
     const classes = useStyles()
     return (
@@ -21,7 +21,7 @@ function NutritionForm () {
                             Record Nutrition
                         </Typography>
 
-                        <form className={classes.form}>
+                        <form className={classes.form} onSubmit={handleSaveBtnOnClick}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
 

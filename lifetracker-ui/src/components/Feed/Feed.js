@@ -13,7 +13,7 @@ function Feed ({type, activityList}) {
             <CssBaseline />
             <Container className="feedContainer" maxWidth='sm'>
                 <Grid container spacing={5}>
-                    {activityList.map((item, index) => (
+                    {activityList?.map((item, index) => (
                         <FeedItem
                             type={type}
                             key={index}

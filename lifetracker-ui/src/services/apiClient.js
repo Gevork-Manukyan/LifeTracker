@@ -63,12 +63,20 @@ class ApiClient {
     }
 
 
-    async createNewNutrition(newNutrition) {
+    async fetchUserNutritions() {
+        return await this.request({ endpoint: `activities/nutrition/`, method: `GET` })
+    }
+
+    async createNewNutrition({ newNutrition }) {
         return await this.request({ endpoint: `activities/nutrition/`, method: `POST`, data: { newNutrition } })
     }
 
 
-    async createNewSleep(newSleep) {
+    async fetchUserSleeps() {
+        return await this.request({ endpoint: `activities/sleep/`, method: `GET` })
+    }
+
+    async createNewSleep({ newSleep }) {
         return await this.request({ endpoint: `activities/sleep/`, method: `POST`, data: { newSleep } })
     }
 

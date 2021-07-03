@@ -11,6 +11,7 @@ export const useExerciseForm = ({ setUserExerciseList }) => {
     const [duration, setDuration] = useState()
     const [intensity, setIntensity] = useState()
 
+
     const handleTextOnChange = (evt) => {
         const name = evt.target.name.toLowerCase()
 
@@ -54,6 +55,6 @@ export const useExerciseForm = ({ setUserExerciseList }) => {
         intensity,
         isProcessing,
         handleTextOnChange,
-        handleSaveBtnOnClick
+        handleSaveBtnOnClick,
     }
 }
