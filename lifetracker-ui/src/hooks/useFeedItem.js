@@ -6,8 +6,7 @@ import useStyles from "../components/FeedItem/FeedItem_Styles"
 
 export const useFeedItem = (type, newItem) => {
 
-    console.log(newItem)
-    const classes = useStyles()
+    const classes = useStyles() 
 
     const header = () => {
         return (

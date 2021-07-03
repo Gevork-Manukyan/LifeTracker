@@ -17,6 +17,8 @@ function App() {
         userExerciseList,
         userNutritionList,
         userSleepList,
+        addExerciseActivity,
+        setUserExerciseList,
         clearAppState,
     } = useApp()
 
@@ -30,11 +32,11 @@ function App() {
                     <Route path="/login" element={<Login user={user} setUser={setUser} />} />
                     <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
                     <Route path="/activity" element={<ActivityPage />} />
-                    <Route path="/exercise" element={<ActivityDetails type='exercise' userExerciseList={userExerciseList} userNutritionList={userNutritionList} userSleepList={userSleepList} />} />
-                    <Route path="/exercise/create" element={<ExerciseForm />} />
-                    <Route path="/nutrition" element={<ActivityDetails type='nutrition' />} />
+                    <Route path="/exercise" element={<ActivityDetails type='exercise' activityList={userExerciseList} />} />
+                    <Route path="/exercise/create" element={<ExerciseForm addExerciseActivity={addExerciseActivity} setUserExerciseList={setUserExerciseList} userExerciseList={userExerciseList} />} />
+                    <Route path="/nutrition" element={<ActivityDetails type='nutrition' activityList={userNutritionList} />} />
                     <Route path="/nutrition/create" element={<NutritionForm />} />
-                    <Route path="/sleep" element={<ActivityDetails type='sleep' />} />
+                    <Route path="/sleep" element={<ActivityDetails type='sleep' activityList={userSleepList} />} />
                     <Route path="/sleep/create" element={<SleepForm />} />
 
                 </Routes>

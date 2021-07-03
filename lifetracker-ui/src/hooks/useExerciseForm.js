@@ -1,9 +1,11 @@
 import apiClient from "services/apiClient"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
-export const useExerciseForm = () => {
+export const useExerciseForm = ({ addExerciseActivity, setUserExerciseList, userExerciseList }) => {
 
+    const navigate = useNavigate()
     const [isProcessing, setIsProcessing] = useState(false)
     const [exerciseName, setExerciseName] = useState("")
     const [duration, setDuration] = useState()
@@ -29,13 +31,19 @@ export const useExerciseForm = () => {
     const handleSaveBtnOnClick = async (evt) => {
         evt.preventDefault()
         
-        const result = await apiClient.createNewExercise({
+        await apiClient.createNewExercise({
             newExercise: {
                 name: exerciseName,
                 duration,
                 intensity    
             }
         })
+
+        const result =  await apiClient.fetchUserExercises()
+        const newList = result.data.activities
+        setUserExerciseList(newList)
+
+        navigate("/exercise")
     }
 
     return {

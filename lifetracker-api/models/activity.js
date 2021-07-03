@@ -34,7 +34,7 @@ class Activity {
                         $2,
                         $3,
                         $4)
-                RETURNING id,
+                RETURNING id AS "exerciseID",
                           user_id AS "userId",
                           name,
                           duration,

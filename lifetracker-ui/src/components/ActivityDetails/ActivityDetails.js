@@ -5,15 +5,11 @@ import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/c
 import { Feed } from "components"
 import { Link } from "react-router-dom"
 import useStyles from "./ActivityDetails_Styles"
-import { useActivityDetails } from "hooks/useActivityDetails"
 
 
-function ActivityDetails ({ type, userExerciseList, userNutritionList, userSleepList }) {
+function ActivityDetails ({ type, activityList }) {
 
     type = type.charAt(0).toUpperCase() + type.slice(1).toLowerCase()
-
-    const { getActivityList } = useActivityDetails({ type, userExerciseList, userNutritionList, userSleepList })
-    const activityList = getActivityList()
 
     const classes = useStyles()
     return (

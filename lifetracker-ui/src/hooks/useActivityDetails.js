@@ -3,23 +3,23 @@
 export const useActivityDetails = ({ type, userExerciseList, userNutritionList, userSleepList }) => {
 
 
-    const getActivityList = () => {
+    // const getActivityList = () => {
 
-        let activityList = []
+    //     let activityList = []
 
-        if (type === "Exercise")
-            activityList = userExerciseList?.data?.activities
-        else if (type === "Nutrition")
-            activityList = userNutritionList?.data?.activities
-        else if (type === "Sleep")
-            activityList = userSleepList?.data?.activities
+    //     if (type === "Exercise")
+    //         activityList = userExerciseList?.data?.activities
+    //     else if (type === "Nutrition")
+    //         activityList = userNutritionList?.data?.activities
+    //     else if (type === "Sleep")
+    //         activityList = userSleepList?.data?.activities
 
-        return activityList
-    }
+    //     return activityList
+    // }
 
     
 
-    return {
-        getActivityList
-    }
+    // return {
+    //     getActivityList
+    // }
 }

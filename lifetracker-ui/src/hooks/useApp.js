@@ -22,9 +22,15 @@ export const useApp = () => {
             // Get all the exercises, nutrition, and sleep of user loggin in and set the states
             const exercises = await apiClient.fetchUserExercises();
             if (exercises?.error) setError(exercises.error)
-            if (exercises)
-                setUserExerciseList(exercises)
+            if (exercises) setUserExerciseList(exercises?.data?.activities)
             
+            // const nutritions = await apiClient.fetchUserNutritions();
+            // if (nutritions?.error) setError(nutritions.error)
+            // if (nutritions) setUserExerciseList(nutritions?.data?.activities)
+
+            // const sleeps = await apiClient.fetchUserSleeps();
+            // if (sleeps?.error) setError(sleeps.error)
+            // if (sleeps) setUserExerciseList(sleeps?.data?.activities)
       
             setInitialized(true)
           }
@@ -40,6 +46,23 @@ export const useApp = () => {
 
 
     }, [isAuthenticated])
+
+    const addExerciseActivity = (newItem) => {
+        // setUserExerciseList((oldList) => ({
+        //     ...oldList, [oldList.length]: newItem
+        // }))
+        setUserExerciseList(userExerciseList => ({...userExerciseList, [userExerciseList.length]: newItem}))
+    }
+
+    const addNutritionActivity = () => {
+        
+    }
+
+
+    const addSleepActivity = () => {
+        
+    }
+
 
 
     const clearAppState = () => {
@@ -58,6 +81,8 @@ export const useApp = () => {
         userExerciseList,
         userNutritionList,
         userSleepList,
+        addExerciseActivity,
+        setUserExerciseList,
         clearAppState,
     }
 
