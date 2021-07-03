@@ -11,7 +11,7 @@ class Activity {
                 FROM exercise_items
                 WHERE user_id = (SELECT id FROM users WHERE email = $1)
 
-            `, [user.email]
+            `, [user.email.toLowerCase()]
         )
         
         return results.rows;
@@ -48,17 +48,18 @@ class Activity {
     }
     
     // list all nutritional items related to specific user
-    static async listNutritions (user) {
+    static async listNutritions ({ user }) {
+
+        const normalizedEmail = user.email.toLowerCase()
         const results = await db.query(
             `
-                SELECT id AS "nutritionID", user_id AS "userId", name AS "foodName", calories, quantity
+                SELECT id AS "nutritionID", user_id AS "userId", name, calories, quantity
                 FROM nutritional_items
                 WHERE user_id = (SELECT id FROM users WHERE email = $1)
 
-            `, [user.email]
+            `, [normalizedEmail]
         )
 
-        console.log(results)
         return results.rows;
     }
 
@@ -93,14 +94,14 @@ class Activity {
     }
     
     // list all sleeps related to specific user
-    static async listSleeps (user) {
+    static async listSleeps ({ user }) {
         const results = await db.query(
             `
                 SELECT id AS "sleepID", user_id AS "userId", start_date, end_date, start_time, end_time, hours
                 FROM sleep_items
                 WHERE user_id = (SELECT id FROM users WHERE email = $1)
 
-            `, [user.email]
+            `, [user.email.toLowerCase()]
         )
 
         return results.rows;
