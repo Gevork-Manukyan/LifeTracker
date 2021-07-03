@@ -47,24 +47,6 @@ export const useApp = () => {
 
     }, [isAuthenticated])
 
-    const addExerciseActivity = (newItem) => {
-        // setUserExerciseList((oldList) => ({
-        //     ...oldList, [oldList.length]: newItem
-        // }))
-        setUserExerciseList(userExerciseList => ({...userExerciseList, [userExerciseList.length]: newItem}))
-    }
-
-    const addNutritionActivity = () => {
-        
-    }
-
-
-    const addSleepActivity = () => {
-        
-    }
-
-
-
     const clearAppState = () => {
         setUser({})
         setError(null)
@@ -81,7 +63,6 @@ export const useApp = () => {
         userExerciseList,
         userNutritionList,
         userSleepList,
-        addExerciseActivity,
         setUserExerciseList,
         clearAppState,
     }

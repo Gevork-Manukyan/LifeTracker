@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 
-export const useExerciseForm = ({ addExerciseActivity, setUserExerciseList, userExerciseList }) => {
+export const useExerciseForm = ({ setUserExerciseList }) => {
 
     const navigate = useNavigate()
     const [isProcessing, setIsProcessing] = useState(false)
@@ -30,7 +30,8 @@ export const useExerciseForm = ({ addExerciseActivity, setUserExerciseList, user
 
     const handleSaveBtnOnClick = async (evt) => {
         evt.preventDefault()
-        
+        setIsProcessing(true)
+
         await apiClient.createNewExercise({
             newExercise: {
                 name: exerciseName,
@@ -43,6 +44,7 @@ export const useExerciseForm = ({ addExerciseActivity, setUserExerciseList, user
         const newList = result.data.activities
         setUserExerciseList(newList)
 
+        setIsProcessing(false)
         navigate("/exercise")
     }
 
@@ -50,6 +52,7 @@ export const useExerciseForm = ({ addExerciseActivity, setUserExerciseList, user
         exerciseName,
         duration,
         intensity,
+        isProcessing,
         handleTextOnChange,
         handleSaveBtnOnClick
     }

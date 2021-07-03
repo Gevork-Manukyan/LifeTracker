@@ -4,9 +4,9 @@ import { CssBaseline, Container, Grid, Typography, TextField, Button } from "@ma
 import { useExerciseForm } from "hooks/useExerciseForm"
 
 
-function ExerciseForm ({ addExerciseActivity, setUserExerciseList }) {
+function ExerciseForm ({ setUserExerciseList }) {
 
-    const { exerciseName, duration, intensity, handleTextOnChange, handleSaveBtnOnClick } = useExerciseForm({ addExerciseActivity, setUserExerciseList })
+    const { exerciseName, duration, intensity, isProcessing, handleTextOnChange, handleSaveBtnOnClick } = useExerciseForm({ setUserExerciseList })
 
     const classes = useStyles()
     return (
