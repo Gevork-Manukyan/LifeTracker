@@ -35,6 +35,9 @@ function ExerciseForm ({ setUserExerciseList }) {
                                         name="exercise_name"
                                         value={exerciseName}
                                         onChange={handleTextOnChange}
+                                        InputLabelProps={{
+                                            style: { color: 'white' },
+                                          }}
                                         autoFocus
                                     />
                                 </Grid>
@@ -51,6 +54,9 @@ function ExerciseForm ({ setUserExerciseList }) {
                                         placeholder="Minutes"
                                         value={duration}
                                         onChange={handleTextOnChange}
+                                        InputLabelProps={{
+                                            style: { color: 'white' },
+                                          }}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -66,6 +72,9 @@ function ExerciseForm ({ setUserExerciseList }) {
                                         placeholder="0-10"
                                         value={intensity}
                                         onChange={handleTextOnChange}
+                                        InputLabelProps={{
+                                            style: { color: 'white' },
+                                          }}
                                     />
                                 </Grid>
                             </Grid>

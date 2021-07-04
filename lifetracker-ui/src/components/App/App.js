@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useApp } from "hooks/useApp"
 
 import { NavBar, Home, Login, Signup, ActivityPage, ActivityDetails, ExerciseForm, NutritionForm, SleepForm } from "components"
-import useStyles from "./App_Styles"
 
 
 function App() {

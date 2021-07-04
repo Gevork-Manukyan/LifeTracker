@@ -23,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
     addExerciseBtn: {
         background: "#2CC2E2",
     },
-    addExerciseText: {
-        color: "white"
-    },
     addNutritionBtn: {
         background: "#E2632C",
     },

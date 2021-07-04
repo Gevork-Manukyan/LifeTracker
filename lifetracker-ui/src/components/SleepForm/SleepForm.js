@@ -38,6 +38,7 @@ function SleepForm ({ setUserSleepList }) {
                                         onChange={handleDateOnChange}
                                         InputLabelProps={{
                                             shrink: true,
+                                            style: { color: 'white' },
                                           }}
                                     />
                                 </Grid>
@@ -54,6 +55,7 @@ function SleepForm ({ setUserSleepList }) {
                                         name="end_time"
                                         InputLabelProps={{
                                             shrink: true,
+                                            style: { color: 'white' },
                                           }}
                                         value={end}
                                         onChange={handleDateOnChange}

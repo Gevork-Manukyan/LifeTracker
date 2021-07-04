@@ -1,18 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles'
-// import { createMuiTheme, ThemeProvider } from '@material-ui/core'
-// import { green, purple } from "@material-ui/core/colors"
-
-
-// const theme = createMuiTheme({
-//     palette: {
-//         primary: {
-//             main: purple['500']
-//         }, 
-//         secondary: {
-//             main: green['A400']
-//         }
-//     }
-// })
 
 const useStyles = makeStyles((theme) => ({
     navBar: {
@@ -23,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         width: "100%",
         msOverflowX: "auto",
-        height: "100px",
+        // height: "100px",
     },
     links: {
         display: "flex",

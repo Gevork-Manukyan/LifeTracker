@@ -1,17 +1,15 @@
 import "./ActivityPage.css"
 
-import { CssBaseline, Typography, Container, Grid, Paper, Box, Button, Card, CardHeader, CardContent } from "@material-ui/core"
+import { CssBaseline, Typography, Container, Grid, Button, Card } from "@material-ui/core"
 import { Link } from "react-router-dom"
 import useStyles from "./ActivityPage_Styles";
 import { useActivityPage } from "hooks/useActivityPage";
-import { useEffect } from "react";
 
 
 function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
 
     
-    const { totalMinutes, avgDailyCalories, avgSleepHours, avgExerciseIntensity, maxHourlyCalories, totalHoursSlept, setTotalMinutes } = useActivityPage({ userExerciseList, userNutritionList, userSleepList })
-
+    const { totalMinutes, avgDailyCalories, avgSleepHours, avgExerciseIntensity, maxHourlyCalories, totalHoursSlept } = useActivityPage({ userExerciseList, userNutritionList, userSleepList })
 
 
     const classes = useStyles()
