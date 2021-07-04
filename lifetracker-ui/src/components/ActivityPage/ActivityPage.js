@@ -3,9 +3,14 @@ import "./ActivityPage.css"
 import { CssBaseline, Typography, Container, Grid, Paper, Box, Button, Card, CardHeader, CardContent } from "@material-ui/core"
 import { Link } from "react-router-dom"
 import useStyles from "./ActivityPage_Styles";
+import { useActivityPage } from "hooks/useActivityPage";
+import { useEffect } from "react";
 
 
-function ActivityPage () {
+function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
+
+    
+    const { totalMinutes, avgDailyCalories, avgSleepHours, avgExerciseIntensity, maxHourlyCalories, totalHoursSlept, setTotalMinutes } = useActivityPage({ userExerciseList, userNutritionList, userSleepList })
 
 
 
@@ -46,7 +51,7 @@ function ActivityPage () {
                                             <Typography className={classes.feedCardTitle}>Total Exercise Minutes</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>4</Typography>
+                                            <Typography className={classes.feedCardValue}>{totalMinutes}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -58,7 +63,7 @@ function ActivityPage () {
                                             <Typography className={classes.feedCardTitle}>Avg Daily Calories</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>5.50</Typography>
+                                            <Typography className={classes.feedCardValue}>{avgDailyCalories}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -70,7 +75,7 @@ function ActivityPage () {
                                             <Typography className={classes.feedCardTitle}>Avg Sleep Hours</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>198.00</Typography>
+                                            <Typography className={classes.feedCardValue}>{avgSleepHours}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -89,7 +94,7 @@ function ActivityPage () {
                                             <Typography className={classes.statsCardTitle}>Avg Exercise Intensity</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>28.28</Typography>
+                                            <Typography className={classes.statsCardValue}>{avgExerciseIntensity}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -101,7 +106,7 @@ function ActivityPage () {
                                             <Typography className={classes.statsCardTitle}>Maximum Hourly Calories</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>10</Typography>
+                                            <Typography className={classes.statsCardValue}>{maxHourlyCalories}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -113,7 +118,7 @@ function ActivityPage () {
                                             <Typography className={classes.statsCardTitle}>Total Hours Slept</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>396</Typography>
+                                            <Typography className={classes.statsCardValue}>{totalHoursSlept}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>

@@ -34,7 +34,7 @@ function App() {
                     <Route path="/" element={<Home  />} />
                     <Route path="/login" element={<Login user={user} setUser={setUser} />} />
                     <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
-                    <Route path="/activity" element={<ActivityPage />} />
+                    <Route path="/activity" element={<ActivityPage userExerciseList={userExerciseList} userNutritionList={userNutritionList} userSleepList={userSleepList} />} />
                     <Route path="/exercise" element={<ActivityDetails type='exercise' activityList={userExerciseList} />} />
                     <Route path="/exercise/create" element={<ExerciseForm setUserExerciseList={setUserExerciseList} />} />
                     <Route path="/nutrition" element={<ActivityDetails type='nutrition' activityList={userNutritionList} />} />
