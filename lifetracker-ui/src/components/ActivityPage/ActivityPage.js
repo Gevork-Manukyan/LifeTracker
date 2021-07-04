@@ -19,66 +19,60 @@ function ActivityPage () {
                         <Typography className={classes.activityFeedHeader} variant='h3'>Activity Feed</Typography>
                     </Grid>
                     <Grid item xs={6}>
-                        <Grid container className={classes.activityFeedBody} spacing={2}>
+                        <Grid container className={classes.activityFeedBtns} justify="flex-end" spacing={2}>
                             <Grid item>
-                                <Button className={classes.addExerciseBtn} variant='outlined'>
-                                    <Link to="/exercise/create">
-                                        <Typography>Add Exercise</Typography>
-                                    </Link>
+                                <Button component={ Link } to="/exercise/create" className={classes.addExerciseBtn} variant='contained'>
+                                    <Typography classes={classes.addExerciseText}>Add Exercise</Typography>
                                 </Button>
                             </Grid>
                             <Grid item>
-                                <Button className={classes.addNutritionBtn} variant='outlined'>
-                                    <Link to="/nutrition/create">
-                                        <Typography>Record Nutrition</Typography>
-                                    </Link>
+                                <Button component={ Link } to="/nutrition/create" className={classes.addNutritionBtn} variant='contained'>
+                                    <Typography>Record Nutrition</Typography>
                                 </Button>
                             </Grid>
                             <Grid item>
-                                <Button className={classes.addSleepBtn} variant='outlined'>
-                                    <Link to="/sleep/create">
-                                        <Typography>Log Sleep</Typography>
-                                    </Link>
+                                <Button component={ Link } to="/sleep/create" className={classes.addSleepBtn} variant='contained'>
+                                    <Typography>Log Sleep</Typography>
                                 </Button>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Grid container spacing={3}>
+                        <Grid container className={classes.activityFeedBody} spacing={2}>
                             <Grid item>
                                 <Card className={classes.totalExerciseMinCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.totalExerciseMin}>Total Exercise Minutes</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.totalExerciseMinValue}>4</Typography>
-                                    </CardContent>
+                                    <Grid container className={classes.feedGrid} direction="column" spacing={3}>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardTitle}>Total Exercise Minutes</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardValue}>4</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                             <Grid item>
                                 <Card className={classes.avgDailyCaloriesCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.avgDailyCalories}>Avg Daily Calories</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.avgDailyCaloriesValue}>5.50</Typography>
-                                    </CardContent>
+                                    <Grid container className={classes.feedGrid} direction="column" spacing={3}>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardTitle}>Avg Daily Calories</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardValue}>5.50</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                             <Grid item>
                                 <Card className={classes.avgSleepHrsCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.avgSleepHrs}>Avg Sleep Hours</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.avgSleepHrsValue}>198.00</Typography>
-                                    </CardContent>
+                                    <Grid container className={classes.feedGrid} direction="column" spacing={3}>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardTitle}>Avg Sleep Hours</Typography>
+                                        </Grid>
+                                        <Grid item>
+                                            <Typography className={classes.feedCardValue}>198.00</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                         </Grid>
@@ -87,41 +81,41 @@ function ActivityPage () {
                         <Typography className={classes.moreStats}>More Stats</Typography>
                     </Grid>
                     <Grid item>
-                        <Grid container className={classes.moreStatsBody} spacing={3}>
+                        <Grid container className={classes.moreStatsBody} spacing={2}>
                             <Grid item>
-                                <Card className={classes.maxHourlyCaloriesCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.maxHourlyCalories}>Maximum Hourly Calories</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.maxHourlyCaloriesValue}>10</Typography>
-                                    </CardContent>
+                                <Card className={classes.avgExerciseIntensityCard}>
+                                    <Grid container className={classes.statsCardGridContainer} direction="column">
+                                        <Grid item>
+                                            <Typography className={classes.statsCardTitle}>Avg Exercise Intensity</Typography>
+                                        </Grid>
+                                        <Grid>
+                                            <Typography className={classes.statsCardValue}>28.28</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                             <Grid item>
-                                <Card className={classes.avgExerciseIntensityCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.avgExerciseIntensity}>Avg Exercise Intensity</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.avgExerciseIntensityValue}>28.28</Typography>
-                                    </CardContent>
+                                <Card className={classes.maxHourlyCaloriesCard}>
+                                    <Grid container className={classes.statsCardGridContainer} direction="column">
+                                        <Grid item>
+                                            <Typography className={classes.statsCardTitle}>Maximum Hourly Calories</Typography>
+                                        </Grid>
+                                        <Grid>
+                                            <Typography className={classes.statsCardValue}>10</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                             <Grid item>
                                 <Card className={classes.totalHoursSleptCard}>
-                                    <CardHeader 
-                                        title={
-                                            <Typography className={classes.totalHoursSlept}>Total Hours Slept</Typography>
-                                        }
-                                    />
-                                    <CardContent>
-                                        <Typography className={classes.totalHoursSleptValue}>396</Typography>
-                                    </CardContent>
+                                    <Grid container className={classes.statsCardGridContainer} direction="column">
+                                        <Grid item>
+                                            <Typography className={classes.statsCardTitle}>Total Hours Slept</Typography>
+                                        </Grid>
+                                        <Grid>
+                                            <Typography className={classes.statsCardValue}>396</Typography>
+                                        </Grid>
+                                    </Grid>
                                 </Card>
                             </Grid>
                         </Grid>
