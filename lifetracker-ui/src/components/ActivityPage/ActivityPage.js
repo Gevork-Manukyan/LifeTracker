@@ -51,7 +51,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.feedCardTitle}>Total Exercise Minutes</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>{totalMinutes}</Typography>
+                                            <Typography className={classes.feedCardValue}>{totalMinutes.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -63,7 +63,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.feedCardTitle}>Avg Daily Calories</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>{avgDailyCalories}</Typography>
+                                            <Typography className={classes.feedCardValue}>{avgDailyCalories.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -75,7 +75,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.feedCardTitle}>Avg Sleep Hours</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography className={classes.feedCardValue}>{avgSleepHours}</Typography>
+                                            <Typography className={classes.feedCardValue}>{avgSleepHours.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -94,7 +94,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.statsCardTitle}>Avg Exercise Intensity</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>{avgExerciseIntensity}</Typography>
+                                            <Typography className={classes.statsCardValue}>{avgExerciseIntensity.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -106,7 +106,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.statsCardTitle}>Maximum Hourly Calories</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>{maxHourlyCalories}</Typography>
+                                            <Typography className={classes.statsCardValue}>{maxHourlyCalories.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
@@ -118,7 +118,7 @@ function ActivityPage ({ userExerciseList, userNutritionList, userSleepList }) {
                                             <Typography className={classes.statsCardTitle}>Total Hours Slept</Typography>
                                         </Grid>
                                         <Grid>
-                                            <Typography className={classes.statsCardValue}>{totalHoursSlept}</Typography>
+                                            <Typography className={classes.statsCardValue}>{totalHoursSlept.toFixed(1)}</Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>
