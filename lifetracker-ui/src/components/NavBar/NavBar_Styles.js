@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     appBar: {
         width: "100%",
         msOverflowX: "auto",
+        height: "100px",
     },
     links: {
         display: "flex",

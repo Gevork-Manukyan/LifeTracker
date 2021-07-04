@@ -1,8 +1,7 @@
 import "./ActivityDetails.css"
 
-import  { Header } from "components"
 import { CssBaseline, Container, Grid, Typography, Button } from "@material-ui/core"
-import { Feed } from "components"
+import { Feed, Header } from "components"
 import { Link } from "react-router-dom"
 import useStyles from "./ActivityDetails_Styles"
 
