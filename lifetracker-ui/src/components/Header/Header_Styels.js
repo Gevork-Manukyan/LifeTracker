@@ -10,6 +10,18 @@ const useStyles = makeStyles((theme) => ({
         padding: "40px 0",
         marginBottom: "50px"
     },
+    exercise: {
+        backgroundColor: '#0DD239',
+
+    },
+    nutrition: {
+        backgroundColor: '#E2632C',
+
+    }, 
+    sleep: {
+        backgroundColor: '#712CE2',
+
+    }
 }))
 
 export default useStyles;
