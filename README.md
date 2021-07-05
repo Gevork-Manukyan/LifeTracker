@@ -62,9 +62,9 @@ What went well during my project demo was the things I learned from my peers. Th
 
 ### Open-source libraries used
 
-https://www.npmjs.com/package/clsx
-https://material-ui.com/
-https://www.npmjs.com/package/material-ui-image
+https://www.npmjs.com/package/clsx  
+https://material-ui.com/  
+https://www.npmjs.com/package/material-ui-image  
 
 ### Shout out
 
