@@ -12,7 +12,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
   - [x] If the user is logged in, it should display a **Sign Out** button. 
   - [x] If no user is logged in, it should display **Login** and **Register** buttons
   - [x] Display a logo on the far left side, and contain links to the individual detailed activity page. 
-- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
 - [x] **Login Page:** A form that allows users to login with email and password.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
