@@ -2,7 +2,7 @@ import apiClient from "services/apiClient"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-export const useLoginForm = ({ user, setUser }) => {
+export const useLoginForm = ({ user, setUser, setUserExerciseList, setUserNutritionList, setUserSleepList }) => {
 
     const navigate = useNavigate()
     const [isProcessing, setIsProcessing] = useState(false)
@@ -50,6 +50,16 @@ export const useLoginForm = ({ user, setUser }) => {
             apiClient.setToken(data.token)
             localStorage.setItem("lifetracker_token", data.token)
         }
+
+        //set user data
+        const exercises = await apiClient.fetchUserExercises();
+            if (exercises) setUserExerciseList(exercises?.data?.activities)
+            
+            const nutritions = await apiClient.fetchUserNutritions();
+            if (nutritions) setUserNutritionList(nutritions?.data?.activities)
+
+            const sleeps = await apiClient.fetchUserSleeps();
+            if (sleeps) setUserSleepList(sleeps?.data?.activities)
 
         setIsProcessing(false)
     }

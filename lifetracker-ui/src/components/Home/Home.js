@@ -6,7 +6,7 @@ import Image from "material-ui-image"
 import useStyles from "./Home_Styles";
 
 
-function Home () {
+function Home ({ user }) {
     const classes = useStyles()
 
     return (
@@ -27,7 +27,7 @@ function Home () {
                             </Paper>
                         </Grid>
                         <Grid item xs={4}>
-                            <Link to="/exercise">
+                            <Link to={JSON.stringify(user) !== '{}' ? "/exercise" : "/login"}>
                                 <Paper elevation={4} className={classes.subImages}>
                                     <Box className="subImages">
                                             <Typography className={classes.cardTitle}>Fitness</Typography>
@@ -37,7 +37,7 @@ function Home () {
                             </Link>
                         </Grid>
                         <Grid item xs={4}>
-                            <Link to="/nutrition">
+                            <Link to={JSON.stringify(user) !== '{}' ? "/nutrition" : "/login"}>
                                 <Paper elevation={4} className={classes.subImages} >
                                     <Box className="subImages">
                                             <Typography className={classes.cardTitle}>Food</Typography>
@@ -47,7 +47,7 @@ function Home () {
                             </Link>
                         </Grid>
                         <Grid item xs={4}>
-                            <Link to="/sleep">
+                            <Link to={JSON.stringify(user) !== '{}' ? "/sleep" : "/login"}>
                                 <Paper elevation={4} className={classes.subImages}>
                                     <Box className="subImages">
                                             <Typography className={classes.cardTitle}>Rest</Typography>

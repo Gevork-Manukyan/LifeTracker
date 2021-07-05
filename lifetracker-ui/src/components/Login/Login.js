@@ -5,9 +5,9 @@ import { Link } from "@material-ui/core"
 import { useLoginForm } from "hooks/useLoginForm"
 import useStyles from './Login_Styles'
 
-function Login ({ user, setUser }) {
+function Login ({ user, setUser, setUserExerciseList, setUserNutritionList, setUserSleepList }) {
 
-    const { isProcessing, errors, form, handleOnSubmit, handleTextOnChange} = useLoginForm({ user, setUser })
+    const { isProcessing, errors, form, handleOnSubmit, handleTextOnChange} = useLoginForm({ user, setUser, setUserExerciseList, setUserNutritionList, setUserSleepList })
 
     const classes = useStyles()
     return (

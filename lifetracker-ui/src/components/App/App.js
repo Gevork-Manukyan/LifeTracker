@@ -23,15 +23,15 @@ function App() {
         clearAppState,
     } = useApp()
 
-
+    console.log("USER HERRRREEE", user)
     return (
         <div className="App">
             <BrowserRouter>
                 <NavBar user={user} setUser={setUser} clearAppState={clearAppState} isAuthenticated={isAuthenticated} />
                 
                 <Routes>
-                    <Route path="/" element={<Home  />} />
-                    <Route path="/login" element={<Login user={user} setUser={setUser} />} />
+                    <Route path="/" element={<Home user={user}  />} />
+                    <Route path="/login" element={<Login user={user} setUser={setUser} setUserExerciseList={setUserExerciseList} setUserNutritionList={setUserNutritionList} setUserSleepList={setUserSleepList} />} />
                     <Route path="/signup" element={<Signup user={user} setUser={setUser} />} />
                     <Route path="/activity" element={<ActivityPage userExerciseList={userExerciseList} userNutritionList={userNutritionList} userSleepList={userSleepList} />} />
                     <Route path="/exercise" element={<ActivityDetails type='exercise' activityList={userExerciseList} />} />
