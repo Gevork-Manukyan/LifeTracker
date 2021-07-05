@@ -44,7 +44,7 @@ https://www.loom.com/share/19f0215e38a643b5be36e9ea592627e4
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+[The topics in the lab well prepared me for this assignment. I was able to complete all the core features myself. There were some features where I had to look back at my labs and copy or mimic some of the code because I didn't remember how to write it myself. The only thing I was unprepared for and had a lot of trouble accomplishing was deploying my code on heroku (I ran into a lot of errors).]
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
