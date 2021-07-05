@@ -44,22 +44,24 @@ https://www.loom.com/share/19f0215e38a643b5be36e9ea592627e4
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[The topics in the lab well prepared me for this assignment. I was able to complete all the core features myself. There were some features where I had to look back at my labs and copy or mimic some of the code because I didn't remember how to write it myself. The only thing I was unprepared for and had a lot of trouble accomplishing was deploying my code on heroku (I ran into a lot of errors).]
+The topics in the lab well prepared me for this assignment. I was able to complete all the core features myself. There were some features where I had to look back at my labs and copy or mimic some of the code because I didn't remember how to write it myself. The only thing I was unprepared for and had a lot of trouble accomplishing was deploying my code on heroku (I ran into a lot of errors).
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+If I had more time I would have added more error messages visiable to the user. I would have also made the styling a lot cleaner. I would also implement using context in order to keep my code cleaner and more dynamic. I also would have implemented the stretch features. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+What went well during my project demo was the things I learned from my peers. Though I hadn't finished my assignment during the demo, my peers still had interest in my project. Something I saw that I would like to try next time is using figma more to create my designs. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+https://www.npmjs.com/package/clsx
+https://material-ui.com/
+https://www.npmjs.com/package/material-ui-image
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+Shout out to Stephanie and Abhiraj who helped my a with my back end code.
