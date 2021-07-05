@@ -12,7 +12,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
   - [x] If the user is logged in, it should display a **Sign Out** button. 
   - [x] If no user is logged in, it should display **Login** and **Register** buttons
   - [x] Display a logo on the far left side, and contain links to the individual detailed activity page. 
-- [ ] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
+- [x] **The Landing Page:** Display a large hero image and a brief blurb on what this application is about
 - [x] **Login Page:** A form that allows users to login with email and password.
 - [x] **Registration Page:** A form that allows the user to sign up with their email, password, username, first name, and last name.
 - [x] When a user first authenticates, they should be redirected to an authenticated view (i.e the detailed activity page). When they sign out, all frontend data should be reset.
@@ -25,8 +25,7 @@ Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
 - [x] The detailed activity page should display a feed of all previous tracked activities.
 - [x] The detailed activity should contain a form to contain relevant information. (i.e if tracking nutrition this form allows the user to capture calories, timestamp, image, category, etc.) 
 - [x] The activity tracked should be given a unique id for easy lookup.
-  `TODO://` Add link to table schema in the link code below. Your file should end in `.sql` and show your schema for the detailed activities table. (🚫 Remove this paragraph after adding schema link)
-  * [Table Schema](📝ADD LINK TO TABLE SCHEMA.sql HERE!) 
+  * [Table Schema](📝lifetracker-api/lifetracker-schema.sql) 
 
 ### Stretch Features
 
@@ -38,30 +37,37 @@ Implement any of the following features to improve the application:
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
+https://www.loom.com/share/19f0215e38a643b5be36e9ea592627e4
 
-`ADD_EMBEDDED_CODE_HERE`
+https://www.loom.com/share/9ffc45b673e7470092c22f08c5178959
+
+https://www.loom.com/share/91a77202a6c042b69dc9490f702f9ae4
+
+https://www.loom.com/share/2e01128e439f43ebac4be3c1bae346c8
+
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-[Add your response here]
+The topics in the lab well prepared me for this assignment. I was able to complete all the core features myself. There were some features where I had to look back at my labs and copy or mimic some of the code because I didn't remember how to write it myself. The only thing I was unprepared for and had a lot of trouble accomplishing was deploying my code on heroku (I ran into a lot of errors).
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-[Add your response here]
+If I had more time I would have added more error messages visiable to the user. I would have also made the styling a lot cleaner. I would also implement using context in order to keep my code cleaner and more dynamic. I also would have implemented the stretch features. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-[Add your response here]
+What went well during my project demo was the things I learned from my peers. Though I hadn't finished my assignment during the demo, my peers still had interest in my project. Something I saw that I would like to try next time is using figma more to create my designs. 
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
+https://www.npmjs.com/package/clsx  
+https://material-ui.com/  
+https://www.npmjs.com/package/material-ui-image  
 
 ### Shout out
 
 Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
 
-[Add your response here]
+Shout out to Stephanie and Abhiraj who helped my a with my back end code.
