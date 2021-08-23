@@ -2,7 +2,7 @@
 
 Submitted by: **Gevork Manukyan**
 
-Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE)
+<!-- Deployed Application: [Lifetracker Deployed Site](ADD_LINK_HERE) -->
 
 ## Application Features
 
